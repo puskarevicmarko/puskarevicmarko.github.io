@@ -12,7 +12,7 @@ html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abb
 /* BODY */
 
 body {
-    background: #fff;
+    background: #FCFCFC;
     font-family: 'Playfair Display', serif;
 	color:#777;
 	-webkit-font-smoothing:antialiased;
@@ -29,7 +29,7 @@ a#button {
 	padding: 12px 12px;
     border-style: solid;
     border-width: 1px;
-    border-color: #fff;
+    border-color: #FCFCFC;
 	color: #000;
 	font-size: 14px; font-weight: light; line-height: 1.4;
 	border-radius: none;
@@ -48,7 +48,7 @@ a#button:hover {
 
 #wrapper {
 	padding:100px 40px 100px 40px;
-	max-width:800px;
+	max-width:500px;
 	margin:0 auto;
 }
 
@@ -86,14 +86,15 @@ a {
 
 h1 {
 	font-weight:400;
-	font-size:20px;
+	font-size:23px;
 	color:#222;
 }
 
 h2 {
-	font-size: 20px;
-	font-weight: 300;
+	font-size: 13px;
+	font-weight: 400;
 	color:#aaa; 
+    text-transform: uppercase;
 	margin-top:10px;
 }
 
