@@ -35,6 +35,21 @@ a#button {
 	border-radius: none;
 }
 
+a#button2 {
+    width:100%;
+    display:block;
+	padding: 12px 12px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #eee;
+    background: #fff; 
+	color: #737373;
+	font-size: 14px; font-weight: light; line-height: 1.4;
+    text-transform: uppercase;
+	border-radius: none;
+    margin-bottom: 20px;
+}
+
 a#button:hover {
 	padding: 12px 12px;
     border-style: solid;
@@ -42,6 +57,17 @@ a#button:hover {
     border-color: #aaa;
     background: #aaa; 
 	color: #fff;
+	font-size: 14px; font-weight: light; line-height: 1.4;
+	border-radius: none;
+}
+
+a#button2:hover {
+	padding: 12px 12px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #F2F2F2;
+    background: #F2F2F2; 
+	color: #000;
 	font-size: 14px; font-weight: light; line-height: 1.4;
 	border-radius: none;
 }
@@ -104,6 +130,13 @@ h3 {
 	color:#aaa; 
 	margin-top:10px;
     margin-bottom:20px;
+}
+
+h4 {
+    font-family: 'Lato', sans-serif;
+	font-weight: 300;
+    font-size: 14px;
+	color:#aaa; 
 }
 
 
