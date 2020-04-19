@@ -18,7 +18,7 @@ let lineChart = new Chart(CHART, {
             {
                 label: "Lexington COVID-19 Confirmed Cases",
                 fill: true,
-                lineTension: 0.2,
+                lineTension: 0.0,
                 backgroundColor: "rgba(166, 25, 46, 0.4)",
                 borderColor: "rgba(166, 25, 46, 1)",
                 borderCapStyle: 'butt',
@@ -30,7 +30,7 @@ let lineChart = new Chart(CHART, {
                 pointBorderWidth: 1,
                 pointHoverRadius: 5,
                 pointHitRadius: 10,
-                data: [3, null, null, null, null, null, 8, null, null, null, null, null, 25, 25, 25, null,null,33,36,null,null,null,47,62,null,null,null,130,139,150,151, 160, 171, 174],
+                data: [6, 6, 6, 7, 8, 8, 8, 9, 11, 14, 17, 19, 21, 25, 25, 27, 28, 33, 36, 37, 41, 47, 47, 62, 80, 80, 87, 130, 139, 150, 151, 160, 171, 174],
                 spanGaps: true,
             }
         ]
