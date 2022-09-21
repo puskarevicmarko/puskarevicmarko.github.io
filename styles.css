@@ -15,9 +15,7 @@
     display: flex;
 }*/
 
-body {
-  background-color: #000;
-}
+
 
 p{
     font-family: -apple-system, BlinkMacSystemFont, sans-serif;
@@ -33,6 +31,11 @@ p{
     font-weight: 400;
     padding-top: 50px;
     border-radius: 0px;
+}
+
+#map {
+  width: 100vw;
+  height: 100vh;
 }
 
 #top1{
