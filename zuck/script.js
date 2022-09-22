@@ -68,8 +68,7 @@ var initDemo = function(){
 							lastUpdated: timestamp(),
 							items: [
 								Zuck.buildItem("ladygaga-1", "photo", 5, "https://raw.githubusercontent.com/puskarevicmarko/puskarevicmarko.github.io/master/nolita1.jpg", "https://raw.githubusercontent.com/puskarevicmarko/puskarevicmarko.github.io/master/nolita1.jpg", '', false, false, timestamp()),
-								Zuck.buildItem("ladygaga-2", "photo", 3, "https://raw.githubusercontent.com/puskarevicmarko/puskarevicmarko.github.io/master/zuck/nolita2.png", "https://raw.githubusercontent.com/puskarevicmarko/puskarevicmarko.github.io/master/zuck/nolita2.png", 'http://ladygaga.com', false, false, timestamp()),
-										 
+								Zuck.buildItem("ladygaga-2", "photo", 3, "https://raw.githubusercontent.com/puskarevicmarko/puskarevicmarko.github.io/master/zuck/nolita2.png", "https://raw.githubusercontent.com/puskarevicmarko/puskarevicmarko.github.io/master/zuck/nolita2.png", '', false, false, timestamp()),
 							]
 						}
 					]
