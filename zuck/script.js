@@ -61,13 +61,15 @@ var initDemo = function(){
 					localStorage: true,
 					stories: [
 						{
-							id: "riversquomo",
-							photo: "https://raw.githubusercontent.com/ramon82/assets/master/zuck.js/users/5.jpg",
+							id: "ladygaga",
+							photo: "https://raw.githubusercontent.com/puskarevicmarko/puskarevicmarko.github.io/master/zuck/nolita2.png",
 							name: "Kiki's",
 							link: "",
 							lastUpdated: timestamp(),
 							items: [
-								Zuck.buildItem("riverscuomo", "photo", 10, "https://raw.githubusercontent.com/puskarevicmarko/puskarevicmarko.github.io/master/nolita1.jpg", "https://raw.githubusercontent.com/puskarevicmarko/puskarevicmarko.github.io/master/nolita1.jpg", '', false, false, timestamp())
+								Zuck.buildItem("ladygaga-1", "photo", 5, "https://raw.githubusercontent.com/puskarevicmarko/puskarevicmarko.github.io/master/nolita1.jpg", "https://raw.githubusercontent.com/puskarevicmarko/puskarevicmarko.github.io/master/nolita1.jpg", '', false, false, timestamp()),
+								Zuck.buildItem("ladygaga-2", "photo", 3, "https://raw.githubusercontent.com/puskarevicmarko/puskarevicmarko.github.io/master/zuck/nolita2.png", "https://raw.githubusercontent.com/puskarevicmarko/puskarevicmarko.github.io/master/zuck/nolita2.png", 'http://ladygaga.com', false, false, timestamp()),
+										 
 							]
 						}
 					]
