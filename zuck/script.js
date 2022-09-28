@@ -70,6 +70,17 @@ var initDemo = function(){
 								Zuck.buildItem("ladygaga-1", "photo", 5, "https://raw.githubusercontent.com/puskarevicmarko/puskarevicmarko.github.io/master/nolita1.jpg", "https://raw.githubusercontent.com/puskarevicmarko/puskarevicmarko.github.io/master/nolita1.jpg", '', false, false, timestamp()),
 								Zuck.buildItem("ladygaga-2", "photo", 3, "https://raw.githubusercontent.com/puskarevicmarko/puskarevicmarko.github.io/master/zuck/nolita2.png", "https://raw.githubusercontent.com/puskarevicmarko/puskarevicmarko.github.io/master/zuck/nolita2.png", '', false, false, timestamp()),
 							]
+						},
+							{
+							id: "gorillaz",
+							photo: "https://raw.githubusercontent.com/ramon82/assets/master/zuck.js/users/2.jpg",
+							name: "Gorillaz",
+							link: "",
+							lastUpdated: timestamp(),
+							items: [
+								Zuck.buildItem("gorillaz-1", "video", 0, "https://raw.githubusercontent.com/ramon82/assets/master/zuck.js/stories/4.mp4", "https://raw.githubusercontent.com/ramon82/assets/master/zuck.js/stories/4.jpg", '', false, false, timestamp()),
+								Zuck.buildItem("gorillaz-2", "photo", 3, "https://raw.githubusercontent.com/ramon82/assets/master/zuck.js/stories/5.jpg", "https://raw.githubusercontent.com/ramon82/assets/master/zuck.js/stories/5.jpg", '', false, false, timestamp()),
+							]
 						}
 					]
 				});

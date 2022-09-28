@@ -76,7 +76,8 @@
                     'type': 'Feature',
                     'properties': {
                     'description':
-                    '<strong>Cervos</strong><img src="nolita1.jpg" class="img-fluid">'
+                    '<strong>Cervos</strong>',
+                    'indexone': 0
                     },
                     'geometry': {
                     'type': 'Point',
@@ -87,7 +88,8 @@
                     'type': 'Feature',
                     'properties': {
                     'description':
-                    '<strong>Kikis</strong><img src="nolita1.jpg" class="img-fluid">'
+                    '<strong>Kikis</strong>',
+                    'indexone': 1
                     },
                     'geometry': {
                     'type': 'Point',
@@ -137,8 +139,9 @@
                     });
                     
                     map.on('click', 'places', (e) => {
-                        let index = 0; // story user index
-                        document.querySelectorAll('#stories .story')[index].click();
+                        const indextwo = e.features[0].properties.indexone;
+                        let index = 1; // story user index
+                        document.querySelectorAll('#stories .story')[indextwo].click();
                     });
                     
                     map.on('mouseleave', 'places', () => {
