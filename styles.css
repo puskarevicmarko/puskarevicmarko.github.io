@@ -1,23 +1,4 @@
-
-/* RESET */
-
-
-
-/* BODY */
-
-/*body {
-    height: 100%;
-    background: linear-gradient(to bottom right, #fff, #fff);
-    font-family: 'Helvetica', Arial, Helvetica, sans-serif;
-	color:#777;
-	-webkit-font-smoothing:antialiased;
-	text-rendering:optimizeLegibility;
-    display: flex;
-}*/
-
-/*ZUCK*/
 @import 'https://fonts.googleapis.com/css?family=Roboto:400,500,700';
-
 @import 'https://cdn.jsdelivr.net/gh/ramon82/zuck.js@master/dist/zuck.css';
 @import 'https://cdn.jsdelivr.net/gh/ramon82/zuck.js@master/dist/skins/snapgram.css';
 @import 'https://cdn.jsdelivr.net/gh/ramon82/zuck.js@master/dist/skins/vemdezap.css';

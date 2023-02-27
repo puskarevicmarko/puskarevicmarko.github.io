@@ -15,7 +15,8 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="styles.css">
-        <meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="./zuck/style.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://unpkg.com/zuck.js/dist/zuck.css" />
 
         <script src='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.js'></script>
         <link href='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.css' rel='stylesheet' />
@@ -55,13 +56,78 @@
     
     
     <body>
-        <div style="display:none">
-        <script src="https://cdn.jsdelivr.net/gh/ramon82/zuck.js@master/dist/zuck.min.js"></script>
-		<div id="stories"></div>
-        </div>
-        </div>
-<!-- partial -->
-  <script  src="./zuck/script.js"></script>
+        <div id="stories" class="container-fluid"></div>
+        <script src="https://unpkg.com/zuck.js/dist/zuck.js"></script>
+        <script src="https://unpkg.com/zuck.js/demo/script.js"></script>
+        <script>
+    
+        var skin = location.href.split('skin=')[1];
+        
+        if(!skin) {
+            skin = 'Snapgram';
+        } 
+    
+        if(skin.indexOf('#')!==-1){
+           skin = skin.split('#')[0];
+        }
+    
+        var skins = {
+            'Snapgram': {
+                'avatars': true,
+                'list': false,
+                'autoFullScreen': false,
+                'cubeEffect': true
+            },
+    
+            'VemDeZAP': {
+                'avatars': false,
+                'list': true,
+                'autoFullScreen': false,
+                'cubeEffect': false
+            },
+    
+            'FaceSnap': {
+                'avatars': true,
+                'list': false,
+                'autoFullScreen': true,
+                'cubeEffect': false
+            },
+    
+            'Snapssenger': {
+                'avatars': false,
+                'list': false,
+                'autoFullScreen': false,
+                'cubeEffect': false
+            }
+        };
+    
+          var stories = window.Zuck(document.querySelector('#stories'), {
+            backNative: true,
+            previousTap: true,
+            autoFullScreen: skins[skin]['autoFullScreen'],
+            skin: skin,
+            avatars: skins[skin]['avatars'],
+            list: skins[skin]['list'],
+            cubeEffect: skins[skin]['cubeEffect'],
+            localStorage: true,
+            stories: [
+              {
+                id: 'LUCIEN',
+                photo:
+                  'https://raw.githubusercontent.com/ramonszo/assets/master/zuck.js/users/2.jpg',
+                name: 'Lucien',
+                time: timestamp(),
+                items: [
+                    {
+                        id: 'test1',
+                        type: 'photo',
+                        length: 3,
+                    }
+                ]
+              }
+            ]
+          });
+        </script>
 
         <div class="container-fluid" id="map1">
             <div id='map'></div>
@@ -74,16 +140,13 @@
                 zoom: 14, // starting zoom
             });
 
-//NEW CODE
             $(document).ready(function () {
             $.ajax({
                 type: "GET",
-                //YOUR TURN: Replace with csv export link
                 url: 'https://docs.google.com/spreadsheets/d/1TJ30712MKFqUTv-EiLfaFQnJ_Gb7qwJBh5U5unOVkRU/gviz/tq?tqx=out:csv&sheet=Sheet1',
                 dataType: "text",
                 success: function (csvData) { makeGeoJSON(csvData); }
             });
-//END NEW CODE
 
             function makeGeoJSON(csvData) {
                     csv2geojson.csv2geojson(csvData, {
@@ -95,7 +158,7 @@
 
                         //Add the the layer to the map
                         map.addLayer({
-                        'id': 'csvData',
+                        'id': 'places',
                         'type': 'circle',
                         'source': {
                             'type': 'geojson',
@@ -111,59 +174,69 @@
                         });
 
 
-                            // When a click event occurs on a feature in the csvData layer, open a popup at the
-                        // location of the feature, with description HTML from its properties.
-                        map.on('click', 'csvData', function (e) {
-                        var coordinates = e.features[0].geometry.coordinates.slice();
+                        // Create a popup, but don't add it to the map yet.
+                        const popup = new mapboxgl.Popup({
+                        closeButton: false,
+                        closeOnClick: false
+                        });
+                        
+                        map.on('mouseenter', 'places', (e) => {
+                        // Change the cursor style as a UI indicator.
+                        map.getCanvas().style.cursor = 'pointer';
+                        
+                        // Copy coordinates array.
+                        const coordinates = e.features[0].geometry.coordinates.slice();
+                        const description = e.features[0].properties.Address;
+                        const nam = e.features[0].properties.Name;
 
-
-
-                        //set popup text
-                        //You can adjust the values of the popup to match the headers of your CSV.
-                        // For example: e.features[0].properties.Name is retrieving information from the field Name in the original CSV.
-                        var description = `<h3>` + e.features[0].properties.Name + `</h3>` + `<h4>` + `<b>` + `Address: ` + `</b>` + e.features[0].geometry.coordinates + `</h4>` + `<h4>` + `<b>` + `Phone: ` + `</b>` + e.features[0].geometry.Longitude + `</h4>`;
-
+                        
                         // Ensure that if the map is zoomed out such that multiple
                         // copies of the feature are visible, the popup appears
                         // over the copy being pointed to.
                         while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
-                            coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+                        coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
                         }
-
-                        //add Popup to map
-
-                        new mapboxgl.Popup()
-                            .setLngLat(coordinates)
-                            .setHTML(description)
-                            .addTo(map);
-                        });
-
-                        map.on('click', 'csvData', (e) => {
-                        const indextwo = e.features[0].properties.Address;
                         
-                        let index = 1; // story user index
-                        document.querySelectorAll('#stories .story')[indextwo].click();
+                        // Populate the popup and set its coordinates
+                        // based on the feature found.
+                        popup.setLngLat(coordinates).setHTML(Name).addTo(map);
                         });
+                    
 
-                        // Change the cursor to a pointer when the mouse is over the places layer.
-                        map.on('mouseenter', 'csvData', function () {
-                        map.getCanvas().style.cursor = 'pointer';
+                        map.on('click', 'places', (e) => {
+                            let index = parseInt(e.features[0].properties.Address,10);
+                            
+                            stories.add({
+                            id: index,
+                            photo: e.features[0].properties.MapsImg,
+                            name: e.features[0].properties.Name,
+                            time: timestamp(),
+                            items: [
+                                {
+                                    id: 'test1',
+                                    type: 'photo',
+                                    src: e.features[0].properties.FirstStory,
+                                    preview: e.features[0].properties.FirstStory,
+                                    length: 3,
+                                }
+                                ]
+                             }
+                            )
+
+                            document.querySelectorAll('#stories .story')[index].click();
                         });
-
-                        // Change it back to a pointer when it leaves.
-                        map.on('mouseleave', 'places', function () {
+                        
+                        map.on('mouseleave', 'places', () => {
                         map.getCanvas().style.cursor = '';
+                        popup.remove();
                         });
-
-                        /*var bbox = turf.bbox(data);
-                        map.fitBounds(bbox, { padding: 50 });*/
 
                     });
 
                     });
                 };
                 });
-            </script>
-    </div>
+            </script> 
+         </div>
     </body>
 </html>
