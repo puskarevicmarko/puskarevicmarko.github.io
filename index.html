@@ -140,6 +140,8 @@
                 zoom: 14, // starting zoom
             });
 
+            let counter = 1; 
+
             $(document).ready(function () {
             $.ajax({
                 type: "GET",
@@ -202,10 +204,9 @@
                         popup.setLngLat(coordinates).setHTML(Name).addTo(map);
                         });
                     
-
                         map.on('click', 'places', (e) => {
                             let index = parseInt(e.features[0].properties.Address,10);
-                            
+
                             stories.add({
                             id: index,
                             photo: e.features[0].properties.MapsImg,
@@ -218,12 +219,15 @@
                                     src: e.features[0].properties.FirstStory,
                                     preview: e.features[0].properties.FirstStory,
                                     length: 3,
+                                    link: 'https://ramon.codes',
+                                    linkText: counter + " is this index ", 
                                 }
                                 ]
                              }
                             )
-
-                            document.querySelectorAll('#stories .story')[index].click();
+                            
+                            counter = counter + 1;
+                            document.querySelectorAll('#stories .story')[0].click();
                         });
                         
                         map.on('mouseleave', 'places', () => {
