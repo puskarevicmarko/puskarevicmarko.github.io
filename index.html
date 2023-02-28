@@ -154,9 +154,9 @@
                             }, function (err, data) {
                             map.on('load', function () {
 
-                                /*data.features.forEach((datum)=>{
+                                data.features.forEach((datum)=>{
                                     datum.properties.HeinosityIndex = parseInt(datum.properties.HeinosityIndex)
-                                })*/
+                                })
                                 //Add the the layer to the map
                                 
                                 map.addLayer({
@@ -167,17 +167,21 @@
                                     'data': data
                                 },
                                 'paint': {
-                                    'circle-color': '#FFCA2A',
-                                    'circle-opacity': 0.5,
-                                    'circle-radius':  15,
-                                    'circle-stroke-width': 5,
-                                    'circle-stroke-color': '#FFFFFF',/*{
+                                    'circle-stroke-color': '#FFCA2A',
+                                    'circle-opacity': 1,
+                                    'circle-radius': 
+                                        {stops: [
+                                            [10, 1],
+                                            [14, 10],
+                                        ]},
+                                    'circle-stroke-width': 0,
+                                    'circle-color': {
                                         property: 'HeinosityIndex',
                                         stops: [
-                                        [10, '#f1f075'],
+                                        [10, '#FFCA2A'],
                                         [50, '#EE352E'],
                                     ]
-                                    },*/
+                                    },
                                 }
                                 });
         
