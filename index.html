@@ -49,86 +49,85 @@
             <div class="container" style="text-align: center">
                 <img src="DOWN BAD!.png" class="img-fluid" >
                 <img src="MANHATTAN’S MOST MEMED.svg" class="img-fluid">
+                <div id="stories" class="container-fluid"></div>
           </div>
         </div>
     
-    </head>
-    
-    
-    <body>
-        <div id="stories" class="container-fluid"></div>
-        <script src="https://unpkg.com/zuck.js/dist/zuck.js"></script>
-        <script src="https://unpkg.com/zuck.js/demo/script.js"></script>
-        <script>
-    
-        var skin = location.href.split('skin=')[1];
+            <script src="https://unpkg.com/zuck.js/dist/zuck.js"></script>
+            <script src="https://unpkg.com/zuck.js/demo/script.js"></script>
+            <script>
         
-        if(!skin) {
-            skin = 'Snapgram';
-        } 
-    
-        if(skin.indexOf('#')!==-1){
-           skin = skin.split('#')[0];
-        }
-    
-        var skins = {
-            'Snapgram': {
-                'avatars': true,
-                'list': false,
-                'autoFullScreen': false,
-                'cubeEffect': true
-            },
-    
-            'VemDeZAP': {
-                'avatars': false,
-                'list': true,
-                'autoFullScreen': false,
-                'cubeEffect': false
-            },
-    
-            'FaceSnap': {
-                'avatars': true,
-                'list': false,
-                'autoFullScreen': true,
-                'cubeEffect': false
-            },
-    
-            'Snapssenger': {
-                'avatars': false,
-                'list': false,
-                'autoFullScreen': false,
-                'cubeEffect': false
+            var skin = location.href.split('skin=')[1];
+            
+            if(!skin) {
+                skin = 'Snapgram';
+            } 
+        
+            if(skin.indexOf('#')!==-1){
+            skin = skin.split('#')[0];
             }
-        };
-    
-          var stories = window.Zuck(document.querySelector('#stories'), {
-            backNative: true,
-            previousTap: true,
-            autoFullScreen: skins[skin]['autoFullScreen'],
-            skin: skin,
-            avatars: skins[skin]['avatars'],
-            list: skins[skin]['list'],
-            cubeEffect: skins[skin]['cubeEffect'],
-            localStorage: true,
-            stories: [
-              {
-                id: 'LUCIEN',
-                photo:
-                  'https://lh5.googleusercontent.com/p/AF1QipOWHnbpBDzSOZl0Zk-nSRMSMGUtvksYuif7G7rP=w408-h306-k-no',
-                name: 'Lucien',
-                time: timestamp(),
-                items: [
-                    {
-                        id: 'test1',
-                        type: 'photo',
-                        length: 3,
-                    }
+        
+            var skins = {
+                'Snapgram': {
+                    'avatars': true,
+                    'list': false,
+                    'autoFullScreen': false,
+                    'cubeEffect': true
+                },
+        
+                'VemDeZAP': {
+                    'avatars': false,
+                    'list': true,
+                    'autoFullScreen': false,
+                    'cubeEffect': false
+                },
+        
+                'FaceSnap': {
+                    'avatars': true,
+                    'list': false,
+                    'autoFullScreen': true,
+                    'cubeEffect': false
+                },
+        
+                'Snapssenger': {
+                    'avatars': false,
+                    'list': false,
+                    'autoFullScreen': false,
+                    'cubeEffect': false
+                }
+            };
+        
+            var stories = window.Zuck(document.querySelector('#stories'), {
+                backNative: true,
+                previousTap: true,
+                autoFullScreen: skins[skin]['autoFullScreen'],
+                skin: skin,
+                avatars: skins[skin]['avatars'],
+                list: skins[skin]['list'],
+                cubeEffect: skins[skin]['cubeEffect'],
+                localStorage: true,
+                stories: [
+                {
+                    id: 'Lucien',
+                    photo:
+                    'https://lh5.googleusercontent.com/p/AF1QipOWHnbpBDzSOZl0Zk-nSRMSMGUtvksYuif7G7rP=w408-h306-k-no',
+                    name: 'Lucien',
+                    time: timestamp(),
+                    items: [
+                        {
+                            id: 'test1',
+                            type: 'photo',
+                            length: 3,
+                        }
+                    ]
+                }
                 ]
-              }
-            ]
-          });
-        </script>
-
+            });
+            </script>
+</head>
+    
+    
+<body>
         <div class="container-fluid" id="map1">
             <div id='map'></div>
             <script>

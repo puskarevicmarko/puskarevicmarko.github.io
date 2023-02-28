@@ -1,15 +1,14 @@
 @import 'https://fonts.googleapis.com/css?family=Roboto:400,500,700';
 
 @import 'https://unpkg.com/zuck.js/dist/zuck.css';
-@import 'https://unpkg.com/zuck.js/dist/skins/snapgram.css';
 
 
-            body {font-family:'Roboto', sans-serif;font-size:14px;padding:0;margin:0;color:#333}
+            body {font-family:'Arial Bold', sans-serif;font-size:14px;padding:0;margin:0;color:#333;font-weight: 700}
             #stories {padding: 12px;}
 			
             h1 {text-align: center;font-family: monospace;padding:0 12px;margin:0;border-bottom:1px solid #ddd;font-size:24px;height:56px;line-height:56px;margin-bottom: 0;white-space: nowrap;text-overflow: ellipsis;overflow:hidden;}
 			h1.Snapgram {background: #fff;color:#333;}
-			h1.FaceSnap {background: #3B5998;color: #fff;}
+			h1.FaceSnap {background: #1d1d1d;color: #fff;}
 			h1.VemDeZAP {background: #085E53;color: #fff;}
 			h1.Snapssenger {background: #0084FF;color:#fff;}
 			

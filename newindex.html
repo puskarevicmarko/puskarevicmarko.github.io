@@ -1,0 +1,262 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>DownBad.nyc</title>
+        <meta name="description" content="Manhattan's Most Memed">
+        <link rel="stylesheet" href="https://unpkg.com/zuck.js/dist/zuck.css" />
+        <link rel="stylesheet" href="styles.css">
+
+        <!--Mapbox-->
+        <script src='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.js'></script>
+        <link href='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.css' rel='stylesheet' />
+        <script src='https://api.mapbox.com/mapbox-gl-js/v2.0.1/mapbox-gl.js'></script>
+        <script src='https://npmcdn.com/csv2geojson@latest/csv2geojson.js'></script>
+        <script src='https://npmcdn.com/@turf/turf/turf.min.js'></script>
+
+        <!--Tailwind-->
+        <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.3.1/css/hover.css"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js"></script>
+
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-163683928-1"></script>
+         <script>
+             window.dataLayer = window.dataLayer || [];
+             function gtag(){dataLayer.push(arguments);}
+             gtag('js', new Date());
+ 
+             gtag('config', 'UA-163683928-1');
+         </script>
+
+    </head>
+    <body>
+        
+        <section class="text-gray-600 body-font relative">
+            <div class="container px-5 py-10 mx-auto flex">
+              <div class="w-2/3 bg-yellow-500 rounded-lg flex flex-col md:ml-auto w-full relative z-10 shadow-lg overflow-hidden">
+                
+                    <div class="flex items-center flex-col items-start text-gray-700 text-lg px-6 py-5">
+                        <img src="DOWN BAD!.png" class="h-16">
+                        <img src="MANHATTAN’S MOST MEMED.svg" class="h-4">
+                    </div>
+                    
+                    <div class="px-6 py-4 border-t border-gray-200 bg-gray-200">
+                    <div class="py-1">
+                         <div id="stories"></div>
+
+                            <script src="https://unpkg.com/zuck.js/dist/zuck.js"></script>
+                            <script src="https://unpkg.com/zuck.js/demo/script.js"></script>
+                            <script>
+                        
+                            var skin = location.href.split('skin=')[1];
+                            
+                            if(!skin) {
+                                skin = 'Snapgram';
+                            } 
+                        
+                            if(skin.indexOf('#')!==-1){
+                            skin = skin.split('#')[0];
+                            }
+                        
+                            var skins = {
+                                'Snapgram': {
+                                    'avatars': true,
+                                    'list': false,
+                                    'autoFullScreen': false,
+                                    'cubeEffect': true
+                                },
+                        
+                                'VemDeZAP': {
+                                    'avatars': false,
+                                    'list': true,
+                                    'autoFullScreen': false,
+                                    'cubeEffect': false
+                                },
+                        
+                                'FaceSnap': {
+                                    'avatars': true,
+                                    'list': false,
+                                    'autoFullScreen': true,
+                                    'cubeEffect': false
+                                },
+                        
+                                'Snapssenger': {
+                                    'avatars': false,
+                                    'list': false,
+                                    'autoFullScreen': false,
+                                    'cubeEffect': false
+                                }
+                            };
+                        
+                            var stories = window.Zuck(document.querySelector('#stories'), {
+                                backNative: true,
+                                previousTap: true,
+                                autoFullScreen: skins[skin]['autoFullScreen'],
+                                skin: skin,
+                                avatars: skins[skin]['avatars'],
+                                list: skins[skin]['list'],
+                                cubeEffect: skins[skin]['cubeEffect'],
+                                localStorage: true,
+                                stories: [
+                                {
+                                    id: 'Lucien',
+                                    photo:
+                                    'https://lh5.googleusercontent.com/p/AF1QipOWHnbpBDzSOZl0Zk-nSRMSMGUtvksYuif7G7rP=w408-h306-k-no',
+                                    name: 'Lucien',
+                                    time: timestamp(),
+                                    items: [
+                                        {
+                                            id: 'test1',
+                                            type: 'photo',
+                                            length: 3,
+                                        }
+                                    ]
+                                }
+                                ]
+                            });
+                            </script>
+                        </div>
+                    </div>  
+                    </div>
+
+              </div>
+            </div>
+            <div class="absolute inset-0 bg-gray-300 h-screen">
+
+                <div class="container-fluid" id="map1">
+                    <div id='map'></div>
+                    <script>
+                    mapboxgl.accessToken = 'pk.eyJ1IjoicHVza2FyZXZpY21hcmtvIiwiYSI6ImNsOGM0ODN2ZzBkaG4zb245MXMyd3o3ZGkifQ.e6UX1du_kGFp5YzHVrnMLw';
+                    var map = new mapboxgl.Map({
+                        container: 'map',
+                        style: 'mapbox://styles/puskarevicmarko/cl1v306x6006a14s2064gtpmd',
+                        center: [-73.991556,40.714972], // starting position [lng, lat]
+                        zoom: 14, // starting zoom
+                    });
+        
+                    let counter = 1; 
+        
+                    $(document).ready(function () {
+                    $.ajax({
+                        type: "GET",
+                        url: 'https://docs.google.com/spreadsheets/d/1TJ30712MKFqUTv-EiLfaFQnJ_Gb7qwJBh5U5unOVkRU/gviz/tq?tqx=out:csv&sheet=Sheet1',
+                        dataType: "text",
+                        success: function (csvData) { makeGeoJSON(csvData); }
+                    });
+        
+                    function makeGeoJSON(csvData) {
+                            csv2geojson.csv2geojson(csvData, {
+                            latfield: 'Latitude',
+                            lonfield: 'Longitude',
+                            delimiter: ','
+                            }, function (err, data) {
+                            map.on('load', function () {
+
+                                data.features.forEach((datum)=>{
+                                    datum.properties.HeinosityIndex = parseInt(datum.properties.HeinosityIndex)
+                                })
+        
+                                //Add the the layer to the map
+                                map.addLayer({
+                                'id': 'places',
+                                'type': 'circle',
+                                'source': {
+                                    'type': 'geojson',
+                                    'data': data
+                                },
+                                'paint': {
+                                    'circle-color': '#FFCA2A',
+                                    'circle-opacity': 0.5,
+                                    'circle-radius':  {
+                                        property: 'HeinosityIndex',
+                                        stops: [
+                                        [10, 5],
+                                        [50, 20],
+                                    ]
+                                    },
+                                    'circle-stroke-width': 5,
+                                    'circle-stroke-color': {
+                                        property: 'HeinosityIndex',
+                                        stops: [
+                                        [10, '#f1f075'],
+                                        [50, '#EE352E'],
+                                    ]
+                                    },
+                                }
+                                });
+        
+        
+                                // Create a popup, but don't add it to the map yet.
+                                const popup = new mapboxgl.Popup({
+                                closeButton: false,
+                                closeOnClick: false
+                                });
+                                
+                                map.on('mouseenter', 'places', (e) => {
+                                // Change the cursor style as a UI indicator.
+                                map.getCanvas().style.cursor = 'pointer';
+                                
+                                // Copy coordinates array.
+                                const coordinates = e.features[0].geometry.coordinates.slice();
+                                const description = e.features[0].properties.Address;
+                                const name = e.features[0].properties.Name;
+        
+                                
+                                // Ensure that if the map is zoomed out such that multiple
+                                // copies of the feature are visible, the popup appears
+                                // over the copy being pointed to.
+                                while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+                                coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+                                }
+                                
+                                // Populate the popup and set its coordinates
+                                // based on the feature found.
+                                popup.setLngLat(coordinates).setHTML(name).addTo(map);
+                                });
+                            
+                                map.on('click', 'places', (e) => {
+                                    let index = parseInt(e.features[0].properties.Address,10);
+        
+                                    stories.add({
+                                    id: index,
+                                    photo: e.features[0].properties.MapsImg,
+                                    name: e.features[0].properties.Name,
+                                    time: timestamp(),
+                                    items: [
+                                        {
+                                            id: 'test1',
+                                            type: 'photo',
+                                            src: e.features[0].properties.FirstStory,
+                                            preview: e.features[0].properties.FirstStory,
+                                            length: 3,
+                                            link: 'https://ramon.codes',
+                                            linkText: counter + " is this index ", 
+                                        }
+                                        ]
+                                     }
+                                    )
+                                    
+                                    counter = counter + 1;
+                                    document.querySelectorAll('#stories .story')[0].click();
+                                });
+                                
+                                map.on('mouseleave', 'places', () => {
+                                map.getCanvas().style.cursor = '';
+                                popup.remove();
+                                });
+        
+                            });
+        
+                            });
+                        };
+                        });
+                    </script> 
+                 </div>
+
+            </div>
+          </section>
+    
+    </body>
+</html>

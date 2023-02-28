@@ -5,7 +5,7 @@
 @import 'https://cdn.jsdelivr.net/gh/ramon82/zuck.js@master/dist/skins/facesnap.css';
 @import 'https://cdn.jsdelivr.net/gh/ramon82/zuck.js@master/dist/skins/snapssenger.css';
 
-            body {font-family:'Roboto', sans-serif;font-size:14px;padding:0;margin:0;color:#333}
+            body {font-family:'Arial', sans-serif;font-size:14px;padding:0;margin:0;color:#333}
             #stories {padding: 12px;}
       
             h1 {text-align: center;font-family: monospace;padding:0 12px;margin:0;border-bottom:1px solid #ddd;font-size:24px;height:56px;line-height:56px;margin-bottom: 0;white-space: nowrap;text-overflow: ellipsis;overflow:hidden;}
@@ -91,15 +91,15 @@ h1{
 }
 
 a:visited {
-  color: #a6192e !important;
+  color: #000 !important;
 }
 
 a:active {
-  color: #460a13 !important;
+  color: #000 !important;
 }
 
 a {
-  color: #a6192e !important;
+  color: #000 !important;
 }
 
 
