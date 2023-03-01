@@ -53,9 +53,10 @@ padding-left: 0px;
 }
 
 #map {
-width: 100vw;
-height: 100vh;
+  width: 100vw;
+  height: 100vh
 }
+
 
 #top1{
   padding-bottom: 30px;
