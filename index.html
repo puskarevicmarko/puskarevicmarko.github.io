@@ -53,6 +53,8 @@
 
         <script>
             let myPane = new CupertinoPane(".cupertino-pane", { 
+                buttonDestroy: false,
+                fastSwipeClose: true,
                 breaks: {
                     top: { enabled: true, height: 575, bounce: true },
                     middle: { enabled: true, height: 80, bounce: true },
@@ -60,6 +62,7 @@
              },
             });
             myPane.present({ animated: true });
+            myPane.preventDismiss(true);
         </script>
         
         <section class="text-gray-600 body-font relative">
