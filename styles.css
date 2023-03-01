@@ -37,9 +37,6 @@ p{
   color: rgb(153, 153, 153);
 }
 
-#map1{
-padding-left: 0px;
-}
 
 .footer{
   padding-top: 50px;
@@ -54,7 +51,10 @@ padding-left: 0px;
 
 #map {
   width: 100vw;
-  height: 100vh
+  height: 100vh;
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
+
 }
 
 
