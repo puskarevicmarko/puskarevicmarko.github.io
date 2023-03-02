@@ -278,9 +278,14 @@
                 freeMode: true,
                 initialBreak: 'bottom',
                 bottomClose: true,
+                topperOverflow: false,
+
                 onBackdropTap: () => this.myPane.moveToBreak('bottom'),
             });
             myPane.present({ animated: false });
+            myPane.preventDismiss(true);
+            myPane.calcFitHeight();
+
         }
         </script>
         
