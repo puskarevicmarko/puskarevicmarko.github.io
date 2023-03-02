@@ -1,24 +1,14 @@
 <html>
     <head>
         <style>
+            .cupertino-pane {
+                margin: 20px;
+            }
+
             .map {
                 width: 100vw;
                 height: 100vh;
             }
-            mgl-map {
-                height: 100%;
-                width: 100%;
-            }
-            ion-drawer { padding: 0 20px; }
-            ion-drawer .content {
-            overflow-y: auto !important;
-            }
-            ion-drawer h1 {
-            margin: 0;
-            padding-bottom: 10px;
-            border-bottom: 1px solid #ccc;
-            }
-        </style>
             </style>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -30,7 +20,7 @@
         <meta name="description" content="Manhattan's Most Memed">
         <link rel="stylesheet" href="https://unpkg.com/zuck.js/dist/zuck.css" />
         <link rel="stylesheet" href="styles.css">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
 
         <!--Mapbox-->
         <script src='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.js'></script>
@@ -48,13 +38,6 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.3.1/css/hover.css"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js"></script>
 
-        <!--Ioncrap-
-            <script>var exports = {"__esModule": true};</script> 
-        <script type="module" src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.esm.js"></script>
-        <script nomodule src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.js"></script>  
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ionic/core/css/ionic.bundle.css"/> -->
-        
-
         <!-- Global site tag (gtag.js) - Google Analytics -->
          <script async src="https://www.googletagmanager.com/gtag/js?id=UA-163683928-1"></script>
          <script>
@@ -64,7 +47,6 @@
  
              gtag('config', 'UA-163683928-1');
          </script>
-
 
     </head>
     <body>
@@ -156,9 +138,7 @@
 
               </div>
             </div>
-        <div class="absolute inset-0" id="map-container">
-            
-            <div id='map'></div>
+        <div class="absolute inset-0" id='map'></div>
                     <script>
                     mapboxgl.accessToken = 'pk.eyJ1IjoicHVza2FyZXZpY21hcmtvIiwiYSI6ImNsOGM0ODN2ZzBkaG4zb245MXMyd3o3ZGkifQ.e6UX1du_kGFp5YzHVrnMLw';
                     var map = new mapboxgl.Map({
@@ -242,7 +222,6 @@
                                 // based on the feature found.
                                 popup.setLngLat(coordinates).setHTML(name).addTo(map);
                                 });
-                                
                             
                                 map.on('click', 'places', (e) => {
                                     let index = parseInt(e.features[0].properties.Address,10);
@@ -281,34 +260,25 @@
                         };
                         });
                     </script> 
+       <!-- </section>-->
 
-                <div class="cupertino-pane" scroll-y="false">
-                    <div class="p-1">
-                        Test3
-                    </div>
-                    <div class="p-1">
-                    </div>
-                </div>
-
-                <script>
-                    window.onload = function () {
-                    var myPane = new CupertinoPane(".cupertino-pane", { 
-                        parentElement: 'body', // Parent container
-                    freemode: 'true',
-                    initialBreak: 'bottom',
-                    breaks: {
-                        middle: { enabled: true, height: 300, bounce: true },
-                        bottom: { enabled: true, height: 80 },
-                    },
-                    events: {
-                    onDrag: () => console.log('Drag event')
-                    }
-                    });
-                    myPane.present({ animated: false });
-                }
-                </script>
+        <div class="cupertino-pane">
+            <div class="p-1">
+            </div>
+            <div class="p-1">
+            </div>
         </div>
 
-
+        <script>
+            let myPane = new CupertinoPane(".cupertino-pane", { 
+                parentElement: 'body',
+                buttonClose: false,
+                initialBreak: 'bottom',
+                bottomClose: true,
+                onBackdropTap: () => this.myPane.moveToBreak('bottom'),
+            });
+            myPane.present({ animated: false });
+        </script>
+        
     </body>
 </html>
