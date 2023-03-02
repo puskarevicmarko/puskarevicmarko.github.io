@@ -267,7 +267,7 @@
                                     )
                                     
                                     //document.querySelectorAll('#stories .story')[0].click();
-                                    drawer.moveToBreak('top');
+                                    myPane.moveToBreak('top');
                                 });
                                 
                                 map.on('mouseleave', 'places', () => {
@@ -284,6 +284,7 @@
 
                 <div class="cupertino-pane" scroll-y="false">
                     <div class="p-1">
+                        Test3
                     </div>
                     <div class="p-1">
                     </div>
@@ -294,6 +295,7 @@
                     var myPane = new CupertinoPane(".cupertino-pane", { 
                         parentElement: 'body', // Parent container
                     freemode: 'true',
+                    initialBreak: 'bottom',
                     breaks: {
                         middle: { enabled: true, height: 300, bounce: true },
                         bottom: { enabled: true, height: 80 },
