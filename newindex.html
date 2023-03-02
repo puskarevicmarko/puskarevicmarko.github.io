@@ -1,40 +1,134 @@
-<!DOCTYPE html>
-<html dir="ltr">
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>DownBad.nyc</title>
+        <meta name="description" content="Manhattan's Most Memed">
+        <link rel="stylesheet" href="https://unpkg.com/zuck.js/dist/zuck.css" />
+        <link rel="stylesheet" href="styles.css">
 
-<head>
-  <meta charset="UTF-8">
-  <title>Cupertino Pane - Overflow</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!--Mapbox-->
-  <script src='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.js'></script>
-  <link href='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.css' rel='stylesheet' />
-  <script src='https://npmcdn.com/csv2geojson@latest/csv2geojson.js'></script>
-  <script src='https://npmcdn.com/@turf/turf/turf.min.js'></script>
 
-  <!--Tailwind-->
-  <script src="https://cdn.tailwindcss.com"></script>
-  
-  <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <script>var exports = {"__esModule": true};</script> <!-- Required if exports not defined earlier -->
-  <script type="module" src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.esm.js"></script>
-  <script nomodule src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.js"></script>
-  <script src="https://unpkg.com/cupertino-pane/dist/cupertino-pane.min.js"></script>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ionic/core/css/ionic.bundle.css"/> 
-  <style>
-    ion-drawer { padding: 0 20px; }
-    ion-drawer .content {
-      overflow-y: auto !important;
-    }
-    ion-drawer h1 {
-      margin: 0;
-      padding-bottom: 10px;
-      border-bottom: 1px solid #ccc;
-    }
-  </style>
-</head>
+        <!--Mapbox-->
+        <script src='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.js'></script>
+        <link href='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.css' rel='stylesheet' />
+        <script src='https://npmcdn.com/csv2geojson@latest/csv2geojson.js'></script>
+        <script src='https://npmcdn.com/@turf/turf/turf.min.js'></script>
 
-<body>
-    <div class="absolute inset-0" id='map'></div>
+        <!--Tailwind-->
+          <script src="https://cdn.tailwindcss.com"></script>
+
+
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.3.1/css/hover.css"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js"></script>
+
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-163683928-1"></script>
+         <script>
+             window.dataLayer = window.dataLayer || [];
+             function gtag(){dataLayer.push(arguments);}
+             gtag('js', new Date());
+ 
+             gtag('config', 'UA-163683928-1');
+         </script>
+
+    </head>
+    <body>
+        
+        <section class="text-gray-600 body-font relative">
+            <div class="container px-4 pt-5 mx-auto flex justify-center">
+              <div class="w-full px-4 md:w-2/3 lg:w-1/2 full bg-gray-100 bg-opacity-75 rounded-2xl flex flex-col relative z-10 shadow-2xl overflow-hidden">
+                    <div class="flex items-center bg-yellow-500 flex-col items-start px-6 py-5">
+                        <img src="DOWN BAD!.png" class="object-contain md:h-12">
+                        <img src="MANHATTAN’S MOST MEMED.svg" class="object-contain md:h-5">
+                    </div>
+                    
+                    <div class="pl-2 border-t border-gray-200 bg-gray-100 bg-opacity-75">
+                    <div>
+                         <div id="stories"></div>
+                            <script src="https://unpkg.com/zuck.js/dist/zuck.js"></script>
+                            <script src="https://unpkg.com/zuck.js/demo/script.js"></script>
+                            <script>
+                        
+                            var skin = location.href.split('skin=')[1];
+                            
+                            if(!skin) {
+                                skin = 'Snapgram';
+                            } 
+                        
+                            if(skin.indexOf('#')!==-1){
+                            skin = skin.split('#')[0];
+                            }
+                        
+                            var skins = {
+                                'Snapgram': {
+                                    'avatars': true,
+                                    'list': false,
+                                    'autoFullScreen': false,
+                                    'cubeEffect': true
+                                },
+                        
+                                'VemDeZAP': {
+                                    'avatars': false,
+                                    'list': true,
+                                    'autoFullScreen': false,
+                                    'cubeEffect': false
+                                },
+                        
+                                'FaceSnap': {
+                                    'avatars': true,
+                                    'list': false,
+                                    'autoFullScreen': true,
+                                    'cubeEffect': false
+                                },
+                        
+                                'Snapssenger': {
+                                    'avatars': false,
+                                    'list': false,
+                                    'autoFullScreen': false,
+                                    'cubeEffect': false
+                                }
+                            };
+                        
+                            var stories = window.Zuck(document.querySelector('#stories'), {
+                                backNative: true,
+                                previousTap: true,
+                                autoFullScreen: skins[skin]['autoFullScreen'],
+                                skin: skin,
+                                avatars: skins[skin]['avatars'],
+                                list: skins[skin]['list'],
+                                cubeEffect: skins[skin]['cubeEffect'],
+                                localStorage: true,
+                                stories: [
+                                {
+                                    id: 'Lucien',
+                                    photo:
+                                    'https://lh5.googleusercontent.com/p/AF1QipOWHnbpBDzSOZl0Zk-nSRMSMGUtvksYuif7G7rP=w408-h306-k-no',
+                                    name: 'Lucien',
+                                    time: timestamp(),
+                                    items: [
+                                        {
+                                            id: 'test1',
+                                            type: 'photo',
+                                            length: 3,
+                                        }
+                                    ]
+                                }
+                                ]
+                            });
+                            </script>
+                        </div>
+                    </div>  
+                    </div>
+
+              </div>
+            </div>
+            <div class="absolute inset-0 bg-gray-300 h-full">
+
+                <div id="map1">
+                    <div id='map'></div>
                     <script>
                     mapboxgl.accessToken = 'pk.eyJ1IjoicHVza2FyZXZpY21hcmtvIiwiYSI6ImNsOGM0ODN2ZzBkaG4zb245MXMyd3o3ZGkifQ.e6UX1du_kGFp5YzHVrnMLw';
                     var map = new mapboxgl.Map({
@@ -59,10 +153,10 @@
                             delimiter: ','
                             }, function (err, data) {
                             map.on('load', function () {
-                                
-                                data.features.forEach((datum)=>{
+
+                                /*data.features.forEach((datum)=>{
                                     datum.properties.HeinosityIndex = parseInt(datum.properties.HeinosityIndex)
-                                })
+                                })*/
                                 //Add the the layer to the map
                                 
                                 map.addLayer({
@@ -73,23 +167,20 @@
                                     'data': data
                                 },
                                 'paint': {
-                                    'circle-stroke-color': '#FFCA2A',
-                                    'circle-opacity': 1,
-                                    'circle-radius': 
-                                        {stops: [
-                                            [10, 1],
-                                            [14, 13],
-                                        ]},
-                                    'circle-stroke-width': 0,
-                                    'circle-color': {
+                                    'circle-color': '#FFCA2A',
+                                    'circle-opacity': 0.5,
+                                    'circle-radius':  15,
+                                    'circle-stroke-width': 5,
+                                    'circle-stroke-color': '#FFFFFF',/*{
                                         property: 'HeinosityIndex',
                                         stops: [
-                                        [10, '#FFCA2A'],
+                                        [10, '#f1f075'],
                                         [50, '#EE352E'],
                                     ]
-                                    },
+                                    },*/
                                 }
                                 });
+        
         
                                 // Create a popup, but don't add it to the map yet.
                                 const popup = new mapboxgl.Popup({
@@ -141,8 +232,7 @@
                                      }
                                     )
                                     
-                                    //document.querySelectorAll('#stories .story')[0].click();
-                                    myPane.moveToBreak('top');
+                                    document.querySelectorAll('#stories .story')[0].click();
                                 });
                                 
                                 map.on('mouseleave', 'places', () => {
@@ -156,198 +246,10 @@
                         };
                         });
                     </script> 
-  <ion-content scroll-y="false">
-      <ion-drawer>
-        <h1 class="ion-padding">Header</h1>
-        
-        <div class="content" overflow-y>
-          <ion-list hide-on-bottom>
-            <ion-list-header>
-              Recent Conversations
-            </ion-list-header>
+                 </div>
+
+            </div>
+          </section>
     
-            <ion-item>
-              <ion-avatar slot="start">
-                <img src="https://ionicframework.com/docs/demos/api/avatar/avatar.svg">
-              </ion-avatar>
-              <ion-label>
-                <h2>Finn</h2>
-                <h3>I'm a big deal</h3>
-                <p>Listen, I've had a pretty messed up day...</p>
-              </ion-label>
-            </ion-item>
-    
-            <ion-item>
-              <ion-avatar slot="start">
-                <img src="https://ionicframework.com/docs/demos/api/avatar/avatar.svg">
-              </ion-avatar>
-              <ion-label>
-                <h2>Han</h2>
-                <h3>Look, kid...</h3>
-                <p>I've got enough on my plate as it is, and I...</p>
-              </ion-label>
-            </ion-item>
-    
-            <ion-item>
-              <ion-avatar slot="start">
-                <img src="https://ionicframework.com/docs/demos/api/avatar/avatar.svg">
-              </ion-avatar>
-              <ion-label>
-                <h2>Rey</h2>
-                <h3>I can handle myself</h3>
-                <p>You will remove these restraints and leave...</p>
-              </ion-label>
-            </ion-item>
-    
-            <ion-item>
-              <ion-avatar slot="start">
-                <img src="https://ionicframework.com/docs/demos/api/avatar/avatar.svg">
-              </ion-avatar>
-              <ion-label>
-                <h2>Luke</h2>
-                <h3>Your thoughts betray you</h3>
-                <p>I feel the good in you, the conflict...</p>
-              </ion-label>
-            </ion-item>
-          </ion-list>
-    
-          <ion-list>
-            <ion-list-header>
-              Online
-            </ion-list-header>
-    
-            <ion-item>
-              <ion-avatar slot="start">
-                <img src="https://ionicframework.com/docs/demos/api/avatar/avatar.svg">
-              </ion-avatar>
-              <ion-label>
-                <h2>Poe</h2>
-                <h3>New Ride</h3>
-                <p>I just upgraded my X-Wing. Next time...</p>
-              </ion-label>
-            </ion-item>
-    
-            <ion-item>
-              <ion-avatar slot="start">
-                <img src="https://ionicframework.com/docs/demos/api/avatar/avatar.svg">
-              </ion-avatar>
-              <ion-label>
-                <h2>Ben</h2>
-                <h3>Move Along</h3>
-                <p>These aren't the droids you're looking for...</p>
-              </ion-label>
-            </ion-item>
-    
-            <ion-item>
-              <ion-avatar slot="start">
-                <img src="https://ionicframework.com/docs/demos/api/avatar/avatar.svg">
-              </ion-avatar>
-              <ion-label>
-                <h2>Leia</h2>
-                <h3>You're My Only Hope</h3>
-                <p>I've placed information vital to the survival...</p>
-              </ion-label>
-            </ion-item>
-    
-            <ion-item>
-              <ion-avatar slot="start">
-                <img src="https://ionicframework.com/docs/demos/api/avatar/avatar.svg">
-              </ion-avatar>
-              <ion-label>
-                <h2>Yoda</h2>
-                <h3>Size matters not</h3>
-                <p>Do or do not. There is no try...</p>
-              </ion-label>
-            </ion-item>
-          </ion-list>
-        </div>
-      </ion-drawer>
-
-      <ion-button expand="block" color="danger" onclick="presentDrawer()">Present Drawer</ion-button>
-      <ion-button expand="block" color="danger" onclick="destroyDrawer()">Destroy Drawer</ion-button>
-
-   
-  </ion-content>
-  <script> 
-    let topHeight = 700;
-    let middleHeight = 350;
-    let content = document.querySelector('ion-drawer .content');
-    var drawer = new CupertinoPane('ion-drawer', { 
-        breaks: {
-          top: { enabled: true, height: topHeight },
-          middle: { enabled: true, height: middleHeight },
-          bottom: { enabled: true, offset: 90 }
-        },
-        initialBreak: 'middle',
-        dragBy: ['.draggable', 'ion-drawer h1'],
-        events: {
-          onDrag: () => {
-            content.style.height = `${window.screen.height 
-              - getPaneTransformY() 
-              - content.offsetTop}px`;
-              content.setAttribute('style', 'overflow-y: hidden !important');
-          },
-          onDidPresent: () => {
-                    content.setAttribute('style', 'overflow-y: auto !important');
-                    content.style.height = `${middleHeight - content.offsetTop}px`;
-          },
-          onTransitionEnd: () => {
-            setTimeout(() => {
-               setHeight();
-            }, 200)
-          }
-        }
-    });
-    window.onload = function() {
-    setTimeout(() => drawer.present({animate: true}), 300);      
-    }
-
-
-    function setHeight() {
-
-            content.setAttribute('style', 'overflow-y: auto !important');
-            if (drawer.currentBreak() === 'top') {
-              content.style.height = `${topHeight - content.offsetTop}px`;
-            }
-            if (drawer.currentBreak() === 'middle') {
-              content.style.height = `${middleHeight - content.offsetTop}px`;
-            }
-    }
-
-    function getPaneTransformY() {
-      const translateYRegex = /\.*translateY\((.*)px\)/i;
-      const paneEl = document.querySelector('.pane');
-      return paneEl ? parseFloat(translateYRegex.exec(paneEl.style.transform)[1]) : 0;
-    }
-
-    async function presentDrawer() {
-      drawer.present({animate: true});
-    };
-
-    async function destroyDrawer() {
-      drawer.destroy({animate: true});
-    };
-    
-    async function hideDrawer() {
-      drawer.hide();
-    };
-
-    async function isHiddenDrawer() {
-        console.log(await drawer.isHidden());
-    };
-
-    async function setTopDrawer() {
-      drawer.moveToBreak('top');
-    };
-
-    async function setMiddleDrawer() {
-      drawer.moveToBreak('middle');
-    };
-
-    async function setBottomDrawer() {
-      drawer.moveToBreak('bottom');
-    };
-  </script>
-</body>
-
+    </body>
 </html>
