@@ -52,12 +52,19 @@
 
     </head>
     <body class="overflow-y-hidden">
+
+        <div class="cupertino-pane">
+            <div class="p-1">
+            </div>
+            <div class="p-1">
+            </div>
+        </div>
+
         <script>
             window.onload = function () {
             var myPane = new CupertinoPane(".cupertino-pane", { 
                 parentElement: 'body',
                 buttonClose: false,
-                freeMode: true,
                 initialBreak: 'bottom',
                 //bottomClose: true,
                // topperOverflow: false,
@@ -157,15 +164,129 @@
 
               </div>
 
-              <div class="cupertino-pane">
-                <div class="p-1">
-                </div>
-                <div class="p-1">
-                </div>
             </div>
-
-            </div>
+        <div class="absolute inset-0" id='map'></div>
+                    <script>
+                    mapboxgl.accessToken = 'pk.eyJ1IjoicHVza2FyZXZpY21hcmtvIiwiYSI6ImNsOGM0ODN2ZzBkaG4zb245MXMyd3o3ZGkifQ.e6UX1du_kGFp5YzHVrnMLw';
+                    var map = new mapboxgl.Map({
+                        container: 'map',
+                        style: 'mapbox://styles/puskarevicmarko/cl1v306x6006a14s2064gtpmd',
+                        center: [-73.991556,40.744972], // starting position [lng, lat]
+                        zoom: 12, // starting zoom
+                    });
+                
+                    $(document).ready(function () {
+                    $.ajax({
+                        type: "GET",
+                        url: 'https://docs.google.com/spreadsheets/d/1TJ30712MKFqUTv-EiLfaFQnJ_Gb7qwJBh5U5unOVkRU/gviz/tq?tqx=out:csv&sheet=Sheet1',
+                        dataType: "text",
+                        success: function (csvData) { makeGeoJSON(csvData); }
+                    });
         
+                    function makeGeoJSON(csvData) {
+                            csv2geojson.csv2geojson(csvData, {
+                            latfield: 'Latitude',
+                            lonfield: 'Longitude',
+                            delimiter: ','
+                            }, function (err, data) {
+                            map.on('load', function () {
+                                
+                                data.features.forEach((datum)=>{
+                                    datum.properties.HeinosityIndex = parseInt(datum.properties.HeinosityIndex)
+                                })
+                                //Add the the layer to the map
+                                
+                                map.addLayer({
+                                'id': 'places',
+                                'type': 'circle',
+                                'source': {
+                                    'type': 'geojson',
+                                    'data': data
+                                },
+                                'paint': {
+                                    'circle-stroke-color': '#FFCA2A',
+                                    'circle-opacity': 1,
+                                    'circle-radius': 
+                                        {stops: [
+                                            [10, 1],
+                                            [14, 13],
+                                        ]},
+                                    'circle-stroke-width': 0,
+                                    'circle-color': {
+                                        property: 'HeinosityIndex',
+                                        stops: [
+                                        [10, '#FFCA2A'],
+                                        [50, '#EE352E'],
+                                    ]
+                                    },
+                                }
+                                });
+        
+                                // Create a popup, but don't add it to the map yet.
+                                const popup = new mapboxgl.Popup({
+                                closeButton: false,
+                                closeOnClick: false
+                                });
+                                
+                                map.on('mouseenter', 'places', (e) => {
+                                // Change the cursor style as a UI indicator.
+                                map.getCanvas().style.cursor = 'pointer';
+                                
+                                // Copy coordinates array.
+                                const coordinates = e.features[0].geometry.coordinates.slice();
+                                const description = e.features[0].properties.Address;
+                                const name = e.features[0].properties.Name;
+        
+                                
+                                // Ensure that if the map is zoomed out such that multiple
+                                // copies of the feature are visible, the popup appears
+                                // over the copy being pointed to.
+                                while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+                                coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+                                }
+                                
+                                // Populate the popup and set its coordinates
+                                // based on the feature found.
+                                popup.setLngLat(coordinates).setHTML(name).addTo(map);
+                                });
+                            
+                                map.on('click', 'places', (e) => {
+                                    let index = parseInt(e.features[0].properties.Address,10);
+        
+                                    stories.add({
+                                    id: index,
+                                    photo: e.features[0].properties.MapsImg,
+                                    name: e.features[0].properties.Name,
+                                    time: timestamp(),
+                                    items: [
+                                        {
+                                            id: 'test1',
+                                            type: 'photo',
+                                            src: e.features[0].properties.FirstStory,
+                                            preview: e.features[0].properties.FirstStory,
+                                            length: 3,
+                                            link: 'https://ramon.codes',
+                                            linkText: "Blank", 
+                                        }
+                                        ]
+                                     }
+                                    )
+                                    
+                                    //document.querySelectorAll('#stories .story')[0].click();
+                                    myPane.moveToBreak('top');
+                                });
+                                
+                                map.on('mouseleave', 'places', () => {
+                                map.getCanvas().style.cursor = '';
+                                popup.remove();
+                                });
+        
+                            });
+        
+                            });
+                        };
+                        });
+                    </script> 
        <!-- </section>-->
         
     </body>

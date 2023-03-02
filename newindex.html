@@ -1,200 +1,82 @@
 <html>
     <head>
-        <!--Ioncrap-->
-        <script>var exports = {"__esModule": true};</script> 
-        <script type="module" src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.esm.js"></script>
-        <script nomodule src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.js"></script>    
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ionic/core/css/ionic.bundle.css"/> 
+        <style>
+            .cupertino-pane {
+                margin: 20px;
+            }
+            body {
+            overscroll-behavior-y: none;
+            }
+            .map {
+                width: 100vw;
+                height: 100vh;
+            }
+            </style>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>DownBad.nyc</title>
+        <!-- Chrome, Firefox OS and Opera -->
+        <meta name="theme-color" content="#FFCA2A">
+        <!-- iOS Safari -->
+        <meta name="apple-mobile-web-app-status-bar-style" content="#FFCA2A">
+        <meta name="description" content="Manhattan's Most Memed">
+        <link rel="stylesheet" href="https://unpkg.com/zuck.js/dist/zuck.css" />
+        <link rel="stylesheet" href="styles.css">
+        <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+
+        <!--Mapbox-->
+        <script src='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.js'></script>
+        <link href='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.css' rel='stylesheet' />
+        <script src='https://npmcdn.com/csv2geojson@latest/csv2geojson.js'></script>
+        <script src='https://npmcdn.com/@turf/turf/turf.min.js'></script>
+
+        <!--Tailwind-->
+        <script src="https://cdn.tailwindcss.com"></script>
+
+        <!--Cupertino-->
+        <script src="https://unpkg.com/cupertino-pane/dist/cupertino-pane.js"></script>
+        <script src="https://unpkg.com/cupertino-pane/dist/cupertino-pane.min.js"></script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.3.1/css/hover.css"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js"></script>
+
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-163683928-1"></script>
+         <script>
+             window.dataLayer = window.dataLayer || [];
+             function gtag(){dataLayer.push(arguments);}
+             gtag('js', new Date());
+ 
+             gtag('config', 'UA-163683928-1');
+         </script>
+
     </head>
-    <body>
-        <ion-content scroll-y="false">
-            <ion-drawer>
-              <h1 class="ion-padding">Header</h1>
-              
-              <div class="content" overflow-y>
-                <ion-list hide-on-bottom>
-                  <ion-list-header>
-                    Recent Conversations
-                  </ion-list-header>
-          
-                  <ion-item>
-                    <ion-avatar slot="start">
-                      <img src="https://ionicframework.com/docs/demos/api/avatar/avatar.svg">
-                    </ion-avatar>
-                    <ion-label>
-                      <h2>Finn</h2>
-                      <h3>I'm a big deal</h3>
-                      <p>Listen, I've had a pretty messed up day...</p>
-                    </ion-label>
-                  </ion-item>
-          
-                  <ion-item>
-                    <ion-avatar slot="start">
-                      <img src="https://ionicframework.com/docs/demos/api/avatar/avatar.svg">
-                    </ion-avatar>
-                    <ion-label>
-                      <h2>Han</h2>
-                      <h3>Look, kid...</h3>
-                      <p>I've got enough on my plate as it is, and I...</p>
-                    </ion-label>
-                  </ion-item>
-          
-                  <ion-item>
-                    <ion-avatar slot="start">
-                      <img src="https://ionicframework.com/docs/demos/api/avatar/avatar.svg">
-                    </ion-avatar>
-                    <ion-label>
-                      <h2>Rey</h2>
-                      <h3>I can handle myself</h3>
-                      <p>You will remove these restraints and leave...</p>
-                    </ion-label>
-                  </ion-item>
-          
-                  <ion-item>
-                    <ion-avatar slot="start">
-                      <img src="https://ionicframework.com/docs/demos/api/avatar/avatar.svg">
-                    </ion-avatar>
-                    <ion-label>
-                      <h2>Luke</h2>
-                      <h3>Your thoughts betray you</h3>
-                      <p>I feel the good in you, the conflict...</p>
-                    </ion-label>
-                  </ion-item>
-                </ion-list>
-          
-                <ion-list>
-                  <ion-list-header>
-                    Online
-                  </ion-list-header>
-          
-                  <ion-item>
-                    <ion-avatar slot="start">
-                      <img src="https://ionicframework.com/docs/demos/api/avatar/avatar.svg">
-                    </ion-avatar>
-                    <ion-label>
-                      <h2>Poe</h2>
-                      <h3>New Ride</h3>
-                      <p>I just upgraded my X-Wing. Next time...</p>
-                    </ion-label>
-                  </ion-item>
-          
-                  <ion-item>
-                    <ion-avatar slot="start">
-                      <img src="https://ionicframework.com/docs/demos/api/avatar/avatar.svg">
-                    </ion-avatar>
-                    <ion-label>
-                      <h2>Ben</h2>
-                      <h3>Move Along</h3>
-                      <p>These aren't the droids you're looking for...</p>
-                    </ion-label>
-                  </ion-item>
-          
-                  <ion-item>
-                    <ion-avatar slot="start">
-                      <img src="https://ionicframework.com/docs/demos/api/avatar/avatar.svg">
-                    </ion-avatar>
-                    <ion-label>
-                      <h2>Leia</h2>
-                      <h3>You're My Only Hope</h3>
-                      <p>I've placed information vital to the survival...</p>
-                    </ion-label>
-                  </ion-item>
-          
-                  <ion-item>
-                    <ion-avatar slot="start">
-                      <img src="https://ionicframework.com/docs/demos/api/avatar/avatar.svg">
-                    </ion-avatar>
-                    <ion-label>
-                      <h2>Yoda</h2>
-                      <h3>Size matters not</h3>
-                      <p>Do or do not. There is no try...</p>
-                    </ion-label>
-                  </ion-item>
-                </ion-list>
-              </div>
-            </ion-drawer>
-               
-        </ion-content>
-        <script> 
-          let topHeight = 700;
-          let middleHeight = 350;
-          let content = document.querySelector('ion-drawer .content');
-          var drawer = new CupertinoPane('ion-drawer', { 
-              breaks: {
-                top: { enabled: true, height: topHeight },
-                middle: { enabled: true, height: middleHeight },
-                bottom: { enabled: true, offset: 90 }
-              },
-              initialBreak: 'middle',
-              dragBy: ['.draggable', 'ion-drawer h1'],
-              events: {
-                onDrag: () => {
-                  content.style.height = `${800
-                    - getPaneTransformY() 
-                    - content.offsetTop}px`;
-                    content.setAttribute('style', 'overflow-y: hidden !important');
-                },
-                onDidPresent: () => {
-                          content.setAttribute('style', 'overflow-y: auto !important');
-                          content.style.height = `${middleHeight - content.offsetTop}px`;
-                },
-                onTransitionEnd: () => {
-                  setTimeout(() => {
-                     setHeight();
-                  }, 200)
-                }
-              }
-          });
-          window.onload = function() {
-          setTimeout(() => drawer.present({animate: true}), 300);      
-          }
-      
-      
-          function setHeight() {
-      
-                  content.setAttribute('style', 'overflow-y: auto !important');
-                  if (drawer.currentBreak() === 'top') {
-                    content.style.height = `${topHeight - content.offsetTop}px`;
-                  }
-                  if (drawer.currentBreak() === 'middle') {
-                    content.style.height = `${middleHeight - content.offsetTop}px`;
-                  }
-          }
-      
-          function getPaneTransformY() {
-            const translateYRegex = /\.*translateY\((.*)px\)/i;
-            const paneEl = document.querySelector('.pane');
-            return paneEl ? parseFloat(translateYRegex.exec(paneEl.style.transform)[1]) : 0;
-          }
-      
-          async function presentDrawer() {
-            drawer.present({animate: true});
-          };
-      
-          async function destroyDrawer() {
-            drawer.destroy({animate: true});
-          };
-          
-          async function hideDrawer() {
-            drawer.hide();
-          };
-      
-          async function isHiddenDrawer() {
-              console.log(await drawer.isHidden());
-          };
-      
-          async function setTopDrawer() {
-            drawer.moveToBreak('top');
-          };
-      
-          async function setMiddleDrawer() {
-            drawer.moveToBreak('middle');
-          };
-      
-          async function setBottomDrawer() {
-            drawer.moveToBreak('bottom');
-          };
+    <body class="overflow-y-hidden">
+
+        <div class="cupertino-pane">
+            <div class="p-1">
+            </div>
+            <div class="p-1">
+            </div>
+        </div>
+
+        <script>
+            window.onload = function () {
+            var myPane = new CupertinoPane(".cupertino-pane", { 
+                parentElement: 'body',
+                buttonClose: false,
+                initialBreak: 'bottom',
+                //bottomClose: true,
+               // topperOverflow: false,
+
+                onBackdropTap: () => this.myPane.moveToBreak('bottom'),
+            });
+            myPane.present({ animated: false });
+            myPane.preventDismiss(true);
+        }
         </script>
 
+       <!---<section class="text-gray-600 body-font relative"> -->
+        
     </body>
 </html>
