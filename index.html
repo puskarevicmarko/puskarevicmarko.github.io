@@ -246,6 +246,7 @@
                                     )
                                     
                                     //document.querySelectorAll('#stories .story')[0].click();
+                                    myPane.present({animate: true});
                                     myPane.moveToBreak('top');
                                 });
                                 
@@ -270,14 +271,17 @@
         </div>
 
         <script>
-            let myPane = new CupertinoPane(".cupertino-pane", { 
+            window.onload = function () {
+            var myPane = new CupertinoPane(".cupertino-pane", { 
                 parentElement: 'body',
                 buttonClose: false,
+                freeMode: true,
                 initialBreak: 'bottom',
                 bottomClose: true,
                 onBackdropTap: () => this.myPane.moveToBreak('bottom'),
             });
             myPane.present({ animated: false });
+        }
         </script>
         
     </body>
