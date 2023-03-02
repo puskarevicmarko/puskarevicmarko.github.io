@@ -38,11 +38,11 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.3.1/css/hover.css"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js"></script>
 
-        <!--IonCrap
+        IonCrap
         <script>var exports = {"__esModule": true};</script> 
         <script type="module" src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.esm.js"></script>
         <script nomodule src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.js"></script>    
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ionic/core/css/ionic.bundle.css"/> -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ionic/core/css/ionic.bundle.css"/>
 
         <!-- Global site tag (gtag.js) - Google Analytics -->
          <script async src="https://www.googletagmanager.com/gtag/js?id=UA-163683928-1"></script>
@@ -268,7 +268,7 @@
                     </script> 
        <!-- </section>-->
 
-        <div class="cupertino-pane" scroll-y="false">
+        <!--<div class="cupertino-pane" scroll-y="false">
             <div class="content" overflow-y>
                 <h1>Test</h1>
                 </div>
@@ -287,10 +287,10 @@
                 bottom: { enabled: true, offset: 90 }
               },
               initialBreak: 'middle',
-              /*dragBy: ['.draggable', 'div .cupertino-pane h1'],*/
-              /*events: {
+              dragBy: ['.draggable'],
+              events: {
                 onDrag: () => {
-                  content.style.height = `${800
+                  content.style.height = `${window.screen.height 
                     - getPaneTransformY() 
                     - content.offsetTop}px`;
                     content.setAttribute('style', 'overflow-y: hidden !important');
@@ -304,7 +304,7 @@
                      setHeight();
                   }, 200)
                 }
-              }*/
+              }
           });
 
           drawer.present({ animated: false });
@@ -324,11 +324,12 @@
                 }
             }
 
+            */
             function getPaneTransformY() {
             const translateYRegex = /\.*translateY\((.*)px\)/i;
             const paneEl = document.querySelector('.pane');
             return paneEl ? parseFloat(translateYRegex.exec(paneEl.style.transform)[1]) : 0;
-            }*/
+            }
 
             async function presentDrawer() {
             drawer.present({animate: true});
@@ -357,9 +358,8 @@
             async function setBottomDrawer() {
             drawer.moveToBreak('bottom');
             };
-        </script>
+        </script>-->
 
-<!--
         <ion-content scroll-y="false">
             <ion-drawer>
               <h1 class="ion-padding">Header</h1>
@@ -548,6 +548,6 @@
             drawer.moveToBreak('bottom');
           };
         </script>
--->
+
     </body>
 </html>
