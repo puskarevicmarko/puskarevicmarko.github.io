@@ -139,6 +139,31 @@
                 </div>
 
               </div>
+
+              <div class="cupertino-pane">
+                <div class="p-1">
+                </div>
+                <div class="p-1">
+                </div>
+            </div>
+    
+            <script>
+                window.onload = function () {
+                var myPane = new CupertinoPane(".cupertino-pane", { 
+                    parentElement: 'body',
+                    buttonClose: false,
+                    //freeMode: true,
+                    initialBreak: 'bottom',
+                    //bottomClose: true,
+                   // topperOverflow: false,
+    
+                    onBackdropTap: () => this.myPane.moveToBreak('bottom'),
+                });
+                myPane.present({ animated: false });
+                myPane.preventDismiss(true);
+            }
+            </script>
+
             </div>
         <div class="absolute inset-0" id='map'></div>
                     <script>
@@ -248,7 +273,6 @@
                                     )
                                     
                                     //document.querySelectorAll('#stories .story')[0].click();
-                                    myPane.present({animate: true});
                                     myPane.moveToBreak('top');
                                 });
                                 
@@ -264,32 +288,6 @@
                         });
                     </script> 
        <!-- </section>-->
-
-        <div class="cupertino-pane">
-            <div class="p-1">
-            </div>
-            <div class="p-1">
-            </div>
-        </div>
-
-        <script>
-            window.onload = function () {
-            var myPane = new CupertinoPane(".cupertino-pane", { 
-                parentElement: 'body',
-                buttonClose: false,
-                freeMode: true,
-                initialBreak: 'bottom',
-                bottomClose: true,
-                topperOverflow: false,
-
-                onBackdropTap: () => this.myPane.moveToBreak('bottom'),
-            });
-            myPane.present({ animated: false });
-            myPane.preventDismiss(true);
-            myPane.calcFitHeight();
-
-        }
-        </script>
         
     </body>
 </html>
