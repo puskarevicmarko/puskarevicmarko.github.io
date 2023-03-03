@@ -274,8 +274,8 @@
             
         </ion-content>
         <script> 
-            let topHeight = 700;
-            let middleHeight = 350;
+            let topHeight = 600;
+            let middleHeight = 300;
             let content = document.querySelector('ion-drawer .content');
             var drawer = new CupertinoPane('ion-drawer', { 
                 breaks: {
@@ -283,7 +283,8 @@
                   middle: { enabled: true, height: middleHeight },
                   bottom: { enabled: true, offset: 90 }
                 },
-                initialBreak: 'middle',
+                initialBreak: 'bottom',
+                buttonDestroy: false,
                 dragBy: ['.draggable', 'ion-drawer h1'],
                 events: {
                   onDrag: () => {
@@ -305,6 +306,7 @@
             });
             window.onload = function() {
             setTimeout(() => drawer.present({animate: true}), 300);      
+            drawer.preventDismiss(true);
             }
         
         
