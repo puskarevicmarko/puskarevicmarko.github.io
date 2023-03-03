@@ -61,19 +61,15 @@
             </div>
     
             <script>
-                window.onload = function () {
-                var myPane = new CupertinoPane(".cupertino-pane", { 
+                
+                let myPane = new CupertinoPane(".cupertino-pane", { 
                     parentElement: 'body',
                     buttonClose: false,
                     initialBreak: 'bottom',
                     //bottomClose: true,
                    // topperOverflow: false,
-    
-                    onBackdropTap: () => this.myPane.moveToBreak('bottom'),
-                });
-                myPane.present({ animated: false });
-                myPane.preventDismiss(true);
-            }
+                    });
+                myPane.present({ animated: false });    
             </script>
         </div>
         <div class="h-screen overflow-auto">
