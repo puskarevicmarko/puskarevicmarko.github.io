@@ -51,32 +51,32 @@
          </script>
 
     </head>
-    <body class="overflow-y-hidden">
-
-        <div class="cupertino-pane">
-            <div class="p-1">
+    <body>
+        <div id="cupertino">
+            <div class="cupertino-pane">
+                <div class="p-1">
+                </div>
+                <div class="p-1">
+                </div>
             </div>
-            <div class="p-1">
-            </div>
+    
+            <script>
+                window.onload = function () {
+                var myPane = new CupertinoPane(".cupertino-pane", { 
+                    parentElement: 'body',
+                    buttonClose: false,
+                    initialBreak: 'bottom',
+                    //bottomClose: true,
+                   // topperOverflow: false,
+    
+                    onBackdropTap: () => this.myPane.moveToBreak('bottom'),
+                });
+                myPane.present({ animated: false });
+                myPane.preventDismiss(true);
+            }
+            </script>
         </div>
-
-        <script>
-            window.onload = function () {
-            var myPane = new CupertinoPane(".cupertino-pane", { 
-                parentElement: 'body',
-                buttonClose: false,
-                initialBreak: 'bottom',
-                //bottomClose: true,
-               // topperOverflow: false,
-
-                onBackdropTap: () => this.myPane.moveToBreak('bottom'),
-            });
-            myPane.present({ animated: false });
-            myPane.preventDismiss(true);
-        }
-        </script>
-
-       <!---<section class="text-gray-600 body-font relative"> -->
+        <div class="h-screen overflow-auto">
             <div class="container px-6 pt-6 mx-auto flex justify-center">
               <div class="w-full md:w-2/3 lg:w-1/2 full bg-gray-100 bg-opacity-75 rounded-2xl flex flex-col relative z-10 shadow-2xl overflow-hidden">
                     <div class="flex items-center bg-yellow-500 flex-col items-start px-6 py-5">
@@ -271,9 +271,7 @@
                                         ]
                                      }
                                     )
-                                    
                                     //document.querySelectorAll('#stories .story')[0].click();
-                                    myPane.moveToBreak('top');
                                 });
                                 
                                 map.on('mouseleave', 'places', () => {
@@ -288,6 +286,7 @@
                         });
                     </script> 
        <!-- </section>-->
+        </div>
         
     </body>
 </html>
