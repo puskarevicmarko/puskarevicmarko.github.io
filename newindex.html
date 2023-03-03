@@ -1,17 +1,5 @@
 <html>
     <head>
-        <style>
-            .cupertino-pane {
-                margin: 20px;
-            }
-            body {
-            overscroll-behavior-y: none;
-            }
-            .map {
-                width: 100vw;
-                height: 100vh;
-            }
-            </style>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>DownBad.nc</title>
@@ -62,15 +50,8 @@
 
         <script>
             let myPane = new CupertinoPane(".cupertino-pane", { 
-                parentElement: 'body',
-                buttonClose: false,
-                initialBreak: 'bottom',
-                //bottomClose: true,
-               // topperOverflow: false,
-                onBackdropTap: () => this.myPane.moveToBreak('bottom'),
             });
             myPane.present({ animated: false });
-            myPane.preventDismiss(true);
         </script>
         
     </body>
