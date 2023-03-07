@@ -37,7 +37,6 @@
 
         <script async src="https://cdn.ampproject.org/v0.js"></script>
         <script async custom-element="amp-instagram" src="https://cdn.ampproject.org/v0/amp-instagram-0.1.js"></script>
-        <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
 
         <!-- Global site tag (gtag.js) - Google Analytics -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-163683928-1"></script>
@@ -61,7 +60,9 @@
                     <button type="button" class="flex-shrink-0 bg-gray-100 text-gray-900 py-2 px-4 rounded-full">Le Dive</button>
                 </div>
                 <div class="content" overflow-y>
+                    <!--max-width:540px; min-width:326px;-->
                     <div id="p1"></div>
+                    
                     <!--<div id="p2"></div>
                     <div id="p3"></div>
                     <div id="p4"></div>
@@ -269,7 +270,7 @@
                                     document.getElementById("location").innerHTML = e.features[0].properties.Name;
                                                                   
                                     document.getElementById("p1").innerHTML = e.features[0].properties.Post1;
-                                    document.getElementById("p2").innerHTML = e.features[0].properties.Post2;
+                                    /*document.getElementById("p2").innerHTML = e.features[0].properties.Post2;
                                     document.getElementById("p3").innerHTML = e.features[0].properties.Post3;
                                     document.getElementById("p3").innerHTML = e.features[0].properties.Post4;
                                     document.getElementById("p3").innerHTML = e.features[0].properties.Post5;
@@ -287,7 +288,7 @@
                                     document.getElementById("p3").innerHTML = e.features[0].properties.Post17;
                                     document.getElementById("p3").innerHTML = e.features[0].properties.Post18;
                                     document.getElementById("p3").innerHTML = e.features[0].properties.Post19;
-                                    document.getElementById("p3").innerHTML = e.features[0].properties.Post20;
+                                    document.getElementById("p3").innerHTML = e.features[0].properties.Post20;*/
 
                                     //document.getElementById("p1").innerHTML = e.features[0].properties.Post1.concat(e.features[0].properties.Post2,e.features[0].properties.Post3,e.features[0].properties.Post4,e.features[0].properties.Post5,e.features[0].properties.Post6,e.features[0].properties.Post7,e.features[0].properties.Post8,e.features[0].properties.Post9,e.features[0].properties.Post10,e.features[0].properties.Post11,e.features[0].properties.Post12,e.features[0].properties.Post13,e.features[0].properties.Post14,e.features[0].properties.Post15,e.features[0].properties.Post16,e.features[0].properties.Post17,e.features[0].properties.Post18,e.features[0].properties.Post19,e.features[0].properties.Post20);
                                     drawer.moveToBreak('top');
