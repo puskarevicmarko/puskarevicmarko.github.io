@@ -272,8 +272,8 @@
                                 popup.setLngLat(coordinates).setHTML(name).addTo(map);
                                 });
                             
+                                
                                 map.on('click', 'places', (e) => {
-                                    drawer.present({animate: true});
                                     document.getElementById("location").innerHTML = e.features[0].properties.Name;    
                                     document.getElementById("p1").innerHTML = e.features[0].properties.Post1;            
                                     document.getElementById("p2").innerHTML = e.features[0].properties.Post2;
@@ -295,10 +295,12 @@
                                     document.getElementById("p18").innerHTML = e.features[0].properties.Post18;
                                     document.getElementById("p19").innerHTML = e.features[0].properties.Post19;
                                     document.getElementById("p20").innerHTML = e.features[0].properties.Post20;
-                                    drawer.moveToBreak('top');
                                     
+                                    presentDrawer();
+
                                     let index = parseInt(e.features[0].properties.Address,10);
                                     
+                                    /*
                                     stories.add({
                                     id: index,
                                     photo: e.features[0].properties.MapsImg,
@@ -316,7 +318,7 @@
                                         }
                                         ]
                                      }
-                                    )
+                                    )*/
                                     //document.querySelectorAll('#stories .story')[0].click();
                                     
 
@@ -346,7 +348,7 @@
                   middle: { enabled: true, height: middleHeight },
                   bottom: { enabled: true, offset: 90 }
                 },
-                initialBreak: 'bottom',
+                initialBreak: 'top',
                 buttonDestroy: false,
                 fastSwipeClose: true,
                 dragBy: ['.draggable', 'ion-drawer h1'],
@@ -368,11 +370,11 @@
                   }
                 }
             });
-            window.onload = function() {
-            setTimeout(() => drawer.present({animate: true}), 300);      
+            
+            /*window.onload = function() {
+            setTimeout(() => drawer.present({animate: true}), 300);    
             //drawer.preventDismiss(true);
-            }
-        
+            }*/
         
             function setHeight() {
         
@@ -418,6 +420,17 @@
             async function setBottomDrawer() {
               drawer.moveToBreak('bottom');
             };
+
+            async function presentTop(){
+                presentDrawer();
+                setTopDrawer();
+            }
+
+            /*
+            window.addEventListener('load', function() {
+            presentDrawer();
+            })*/
+
           </script>
       </body>
 </html>
