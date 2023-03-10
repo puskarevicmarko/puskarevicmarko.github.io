@@ -298,6 +298,9 @@
                                     
                                     presentDrawer();
 
+                                    map.flyTo({
+                                    center: e.features[0].geometry.coordinates
+                                    });
                                     let index = parseInt(e.features[0].properties.Address,10);
                                     
                                     /*
