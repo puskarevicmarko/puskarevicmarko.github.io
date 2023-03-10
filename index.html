@@ -64,10 +64,11 @@
                 <h1 id="location" class="ion-padding">Heinosities</h1>
                 <div id="button-group" class="py-2 pl-4 flex justify-left items-center space-x-4 overflow-x-auto">
                     <h2 class="flex-shrink-0 ">Associated: </h2>
-                    <button type="button" class="flex-shrink-0 bg-gray-100 text-gray-900 py-2 px-4 rounded-full">Kith</button>
+                    <div id="tags" class="flex-shrink-0"></div>
+                    <!--<button type="button" class="flex-shrink-0 bg-gray-100 text-gray-900 py-2 px-4 rounded-full">Kith</button>
                     <button type="button" class="flex-shrink-0 bg-gray-100 text-gray-900 py-2 px-4 rounded-full">Supreme</button>
                     <button type="button" class="flex-shrink-0 bg-gray-100 text-gray-900 py-2 px-4 rounded-full">Clandestino</button>
-                    <button type="button" class="flex-shrink-0 bg-gray-100 text-gray-900 py-2 px-4 rounded-full">Le Dive</button>
+                    <button type="button" class="flex-shrink-0 bg-gray-100 text-gray-900 py-2 px-4 rounded-full">Le Dive</button>-->
                 </div>
                 <div class="content" overflow-y>
                     <div class="h-fit" id="p1"></div>       
@@ -274,7 +275,10 @@
                             
                                 
                                 map.on('click', 'places', (e) => {
-                                    document.getElementById("location").innerHTML = e.features[0].properties.Name;    
+                                    document.getElementById("location").innerHTML = e.features[0].properties.Name;   
+                                    
+                                    document.getElementById("tags").innerHTML = e.features[0].properties.Tags;            
+
                                     document.getElementById("p1").innerHTML = e.features[0].properties.Post1;            
                                     document.getElementById("p2").innerHTML = e.features[0].properties.Post2;
                                     document.getElementById("p3").innerHTML = e.features[0].properties.Post3;
@@ -436,4 +440,9 @@
 
           </script>
       </body>
+      <!--<footer>
+        <div class="fixed bottom-4 p-5 left-1/2 transform -translate-x-1/2 inline-flex left-0 mx-auto justify-center w-5/12 rounded-3xl">
+            <button type="button" class="text-white bg-yellow-400 hover:bg-yellow-500 focus:outline-none focus:ring-4 focus:ring-yellow-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:focus:ring-yellow-900">Yellow</button>
+          </div>
+        </footer>-->
 </html>
