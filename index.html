@@ -208,9 +208,9 @@
                 zoom: 12, // starting zoom
             });
 
-            map.on('load', () => {
+            /*map.on('load', () => {
                 map.resize();
-            });
+            });*/
 
             $(document).ready(function () {
                     $.ajax({
@@ -228,6 +228,8 @@
                             }, function (err, data) {
                             map.on('load', function () {
                                 
+                                map.resize();
+
                                 data.features.forEach((datum)=>{
                                     datum.properties.HeinosityIndex = parseInt(datum.properties.HeinosityIndex)
                                 })

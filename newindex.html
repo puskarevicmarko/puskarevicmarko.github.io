@@ -2,101 +2,128 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>DownBad.nc</title>
+        <title>DownBad.nyc</title>
         <!-- Chrome, Firefox OS and Opera -->
         <meta name="theme-color" content="#FFCA2A">
         <!-- iOS Safari -->
+        <meta name="apple-mobile-web-app-status-bar-style" content="#FFCA2A">
+        <meta name="description" content="Manhattan's Most Memed">
+        <link rel="stylesheet" href="https://unpkg.com/zuck.js/dist/zuck.css" />
+        <link rel="stylesheet" href="styles.css">
+        <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' /> 
+
+        <script type="module" src="https://cdn.ampproject.org/bento.mjs"></script>
+        <script nomodule src="https://cdn.ampproject.org/bento.js"></script>
+        <script type="module" src="https://cdn.ampproject.org/v0/bento-instagram-1.0.mjs"></script>
+        <script nomodule src="https://cdn.ampproject.org/v0/bento-instagram-1.0.js"></script>
+        <style>
+            bento-instagram {
+              display: block;
+              overflow: hidden;
+              position: relative;
+
+              width: 100%;
+              height: 700px;
+            }
+          </style>
+
+        <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+   
+        
+        <!--Mapbox-->
+        <script src='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.js'></script>
+        <link href='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.css' rel='stylesheet' />
+        <script src='https://npmcdn.com/csv2geojson@latest/csv2geojson.js'></script>
+        <script src='https://npmcdn.com/@turf/turf/turf.min.js'></script>
+
         <!--Tailwind-->
         <script src="https://cdn.tailwindcss.com"></script>
 
+        <!--Cupertino1-->
+        <script src="https://unpkg.com/cupertino-pane/dist/cupertino-pane.js"></script>
+        <script src="https://unpkg.com/cupertino-pane/dist/cupertino-pane.min.js"></script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js"></script>
 
         <!-- Global site tag (gtag.js) - Google Analytics -->
-         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-163683928-1"></script>
-         <script>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-163683928-1"></script>
+        <script>
              window.dataLayer = window.dataLayer || [];
              function gtag(){dataLayer.push(arguments);}
              gtag('js', new Date());
- 
              gtag('config', 'UA-163683928-1');
-         </script>
-
-
-<script type="module" src="https://cdn.ampproject.org/bento.mjs" crossorigin="anonymous"></script>
-<script nomodule src="https://cdn.ampproject.org/bento.js" crossorigin="anonymous"></script>
-<script type="module" src="https://cdn.ampproject.org/v0/bento-instagram-1.0.mjs" crossorigin="anonymous"></script>
-<script nomodule src="https://cdn.ampproject.org/v0/bento-instagram-1.0.js" crossorigin="anonymous"></script>
-<link rel="stylesheet" href="https://cdn.ampproject.org/v0/bento-instagram-1.0.css" crossorigin="anonymous">
-
-<style>
-    bento-instagram {
-      display: inline-block;
-      overflow: hidden;
-      position: relative;
-
-      width: 500px;
-      height: 900px;
-      border: 1px;
-      border-style: solid;
-        border-color: red;
-
-    }
-  </style>
+         </script>      
 
     </head>
     <body>
-        <p>Test</p>
-        
-        <bento-instagram id="my-instagram" data-shortcode="Cf7dnhluUIc" data-captioned   layout="responsive"></bento-instagram>     
-        <bento-instagram id="my-instagram" data-shortcode="Cfq7E6pOTy7" data-captioned   layout="responsive"></bento-instagram>     
-        <bento-instagram id="my-instagram" data-shortcode="CfceifkOVdY" data-captioned   layout="responsive"></bento-instagram>     
-        <bento-instagram id="my-instagram" data-shortcode="CfM8HACO6DS" data-captioned   layout="responsive"></bento-instagram>     
-        <bento-instagram id="my-instagram" data-shortcode="CfFtuRcMOVs" data-captioned   layout="responsive"></bento-instagram>     
-        <bento-instagram id="my-instagram" data-shortcode="CfFoCocs9t7" data-captioned   layout="responsive"></bento-instagram>     
-        <bento-instagram id="my-instagram" data-shortcode="Ce6nRIDuEbN" data-captioned   layout="responsive"></bento-instagram>     
-        <bento-instagram id="my-instagram" data-shortcode="CehkrVaMBu3" data-captioned   layout="responsive"></bento-instagram>     
-        <bento-instagram id="my-instagram" data-shortcode="CehDqrCOH9O" data-captioned   layout="responsive"></bento-instagram>     
-        <bento-instagram id="my-instagram" data-shortcode="Cebm970Oraj" data-captioned   layout="responsive"></bento-instagram>     
-        <bento-instagram id="my-instagram" data-shortcode="CeY5BdEO9F6" data-captioned   layout="responsive"></bento-instagram>     
-        <bento-instagram id="my-instagram" data-shortcode="CeUbHaMO9v9" data-captioned   layout="responsive"></bento-instagram>     
-        <bento-instagram id="my-instagram" data-shortcode="Cd_Qq9cu9wN" data-captioned   layout="responsive"></bento-instagram>     
-        <bento-instagram id="my-instagram" data-shortcode="Cd5xKEogKzy" data-captioned   layout="responsive"></bento-instagram>     
-        <bento-instagram id="my-instagram" data-shortcode="Cd1eyGoO0dQ" data-captioned   layout="responsive"></bento-instagram>     
-        <bento-instagram id="my-instagram" data-shortcode="Cdjg0gCuLKc" data-captioned   layout="responsive"></bento-instagram>     
-        <bento-instagram id="my-instagram" data-shortcode="CdbzGbtO3p7" data-captioned   layout="responsive"></bento-instagram>     
-        <bento-instagram id="my-instagram" data-shortcode="CdWplLsuFpX" data-captioned   layout="responsive"></bento-instagram>     
-        <bento-instagram id="my-instagram" data-shortcode="Cd_z5tgOJPe" data-captioned   layout="responsive"></bento-instagram>     
-        <bento-instagram id="my-instagram" data-shortcode="CdOjV_0ObsI" data-captioned   layout="responsive"></bento-instagram>     
-        <bento-instagram id="my-instagram" data-shortcode="CdJ9qCfMr3a" data-captioned   layout="responsive"></bento-instagram>     
-        <bento-instagram id="my-instagram" data-shortcode="CdJ45EJsftN" data-captioned   layout="responsive"></bento-instagram>     
-        <bento-instagram id="my-instagram" data-shortcode="CdEntyHOnV5" data-captioned   layout="responsive"></bento-instagram>     
-        <bento-instagram id="my-instagram" data-shortcode="Cc5tVueO782" data-captioned   layout="responsive"></bento-instagram>     
-        <bento-instagram id="my-instagram" data-shortcode="Cc1QATfgU5X" data-captioned   layout="responsive"></bento-instagram>     
-        <bento-instagram id="my-instagram" data-shortcode="CcyVuMsOLbc" data-captioned   layout="responsive"></bento-instagram>     
-        <bento-instagram id="my-instagram" data-shortcode="Ccol1CQMMYh" data-captioned   layout="responsive"></bento-instagram>     
-        <bento-instagram id="my-instagram" data-shortcode="CcjJm0Kub1u" data-captioned   layout="responsive"></bento-instagram>     
-        <bento-instagram id="my-instagram" data-shortcode="Ccgt_NtMlcR" data-captioned   layout="responsive"></bento-instagram>     
-        <bento-instagram id="my-instagram" data-shortcode="CcWYJ36O9Qf" data-captioned   layout="responsive"></bento-instagram>     
-        <bento-instagram id="my-instagram" data-shortcode="CcTtCKgOc7-" data-captioned   layout="responsive"></bento-instagram>     
-        <bento-instagram id="my-instagram" data-shortcode="CcLzdL9OyxY" data-captioned   layout="responsive"></bento-instagram>     
-        <bento-instagram id="my-instagram" data-shortcode="CcGpHKaOMTA" data-captioned   layout="responsive"></bento-instagram>     
-        <bento-instagram id="my-instagram" data-shortcode="Cb-zIdmApM1" data-captioned   layout="responsive"></bento-instagram>     
-        <bento-instagram id="my-instagram" data-shortcode="Cb7gu1YOkod" data-captioned   layout="responsive"></bento-instagram>     
-        <bento-instagram id="my-instagram" data-shortcode="Cb58X3WumRK" data-captioned   layout="responsive"></bento-instagram>     
-        <bento-instagram id="my-instagram" data-shortcode="Cb5YO34umTk" data-captioned   layout="responsive"></bento-instagram>     
-        <bento-instagram id="my-instagram" data-shortcode="CbtFKv1uPSu" data-captioned   layout="responsive"></bento-instagram>     
-        <bento-instagram id="my-instagram" data-shortcode="CbqwiyOMl99" data-captioned   layout="responsive"></bento-instagram>     
-        <bento-instagram id="my-instagram" data-shortcode="CbiF4zRuytJ" data-captioned   layout="responsive"></bento-instagram>     
-        <bento-instagram id="my-instagram" data-shortcode="Cbf07icOT4B" data-captioned   layout="responsive"></bento-instagram>     
-        <bento-instagram id="my-instagram" data-shortcode="Cbd7he7MbNB" data-captioned   layout="responsive"></bento-instagram>     
-        <bento-instagram id="my-instagram" data-shortcode="CbYGUGxOj2z" data-captioned   layout="responsive"></bento-instagram>     
-        <bento-instagram id="my-instagram" data-shortcode="CbIpdPPuvat" data-captioned   layout="responsive"></bento-instagram>     
-        <bento-instagram id="my-instagram" data-shortcode="CbBlPiVsSPd" data-captioned   layout="responsive"></bento-instagram>     
-        <bento-instagram id="my-instagram" data-shortcode="Ca5iCzsOPLa" data-captioned   layout="responsive"></bento-instagram>     
-        <bento-instagram id="my-instagram" data-shortcode="CasO1GAOjP5" data-captioned   layout="responsive"></bento-instagram>     
-        <bento-instagram id="my-instagram" data-shortcode="CaWH6S3sc4A" data-captioned   layout="responsive"></bento-instagram>     
-        <bento-instagram id="my-instagram" data-shortcode="CaD2IL6sy4j" data-captioned   layout="responsive"></bento-instagram>     
-        <bento-instagram id="my-instagram" data-shortcode="CZ2nV24FtYd" data-captioned   layout="responsive"></bento-instagram>     
-    </body>
-  
+      
+            <div class="container px-6 pt-6 mx-auto flex justify-center overflow-hidden">
+                <div class="w-full md:w-2/3 lg:w-1/2 full bg-yellow-500 bg-opacity-75 rounded-2xl flex flex-col relative z-10 shadow-2xl mb-5 overflow-hidden">
+                      <div class="flex items-center bg-yellow-500 flex-col items-start px-6 py-5">
+                          <img src="DOWN BAD!.png" class="object-contain md:h-12">
+                          <img src="MANHATTAN’S MOST MEMED.svg" class="object-contain md:h-5">
+                      </div>
+                   </div>
 
+                   <div class="w-full md:w-2/3 lg:w-1/2 full items-center overflow-hidden  relative z-10 shadow-lg">
+                    <div class="px-6 py-4">
+                      <div class="font-bold text-xl mb-2">Lucien</div>
+                    </div>
+                    <div class="px-6 pt-4 pb-2">
+                      <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#photography</span>
+                      <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#travel</span>
+                      <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#winter</span>
+                    </div>
+                  </div>
+                   
+                </div>
+            
+                <div class="justify-center flex flex-wrap flex-col items-center z-10">
+
+                <div class="w-full md:w-2/3 lg:w-1/2 full items-center overflow-hidden shadow-lg">
+                    <div class="px-6 py-4">
+                      <div class="font-bold text-xl mb-2">Lucien</div>
+                    </div>
+                    <div class="px-6 pt-4 pb-2">
+                      <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#photography</span>
+                      <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#travel</span>
+                      <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#winter</span>
+                    </div>
+                  </div>
+
+                  <div class="w-full md:w-2/3 lg:w-1/2 full items-center overflow-hidden shadow-lg">
+                    <div class="px-6 py-4">
+                      <div class="font-bold text-xl mb-2">Lucien</div>
+                    </div>
+                    <div class="px-6 pt-4 pb-2">
+                      <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#photography</span>
+                      <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#travel</span>
+                      <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#winter</span>
+                    </div>
+                  </div>
+    
+                </div>
+
+                <div class="absolute inset-0" id='map' data-tap-disabled="true"></div>
+                <script>
+                mapboxgl.accessToken = 'pk.eyJ1IjoicHVza2FyZXZpY21hcmtvIiwiYSI6ImNsOGM0ODN2ZzBkaG4zb245MXMyd3o3ZGkifQ.e6UX1du_kGFp5YzHVrnMLw';
+                var map = new mapboxgl.Map({
+                    container: 'map',
+                    style: 'mapbox://styles/puskarevicmarko/cl1v306x6006a14s2064gtpmd',
+                    center: [-73.991556,40.744972], // starting position [lng, lat]
+                    zoom: 12, // starting zoom
+                });
+    
+                map.on('load', () => {
+                    map.resize();
+                });
+    
+                
+                </script>
+      </body>
+      <!--<footer>
+        <div class="fixed bottom-4 p-5 left-1/2 transform -translate-x-1/2 inline-flex left-0 mx-auto justify-center w-5/12 rounded-3xl">
+            <button type="button" class="text-white bg-yellow-400 hover:bg-yellow-500 focus:outline-none focus:ring-4 focus:ring-yellow-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:focus:ring-yellow-900">Yellow</button>
+          </div>
+        </footer>-->
 </html>
