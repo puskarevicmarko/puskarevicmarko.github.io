@@ -12,6 +12,11 @@
         <link rel="stylesheet" href="styles.css">
         <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' /> 
 
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=News+Cycle:wght@400;700&display=swap" rel="stylesheet">
+
         <script type="module" src="https://cdn.ampproject.org/bento.mjs"></script>
         <script nomodule src="https://cdn.ampproject.org/bento.js"></script>
         <script type="module" src="https://cdn.ampproject.org/v0/bento-instagram-1.0.mjs"></script>
@@ -57,69 +62,31 @@
     </head>
     <body>
       
+        <div class="bg-gray-100 h-full">
             <div class="container px-6 pt-6 mx-auto flex justify-center overflow-hidden">
-                <div class="w-full md:w-2/3 lg:w-1/2 full bg-yellow-500 bg-opacity-75 rounded-2xl flex flex-col relative z-10 shadow-2xl mb-5 overflow-hidden">
-                      <div class="flex items-center bg-yellow-500 flex-col items-start px-6 py-5">
+                <div class="w-full md:w-full lg:w-2/3 full bg-opacity-75 rounded-2xl z-10 mb-2 overflow-hidden">
+                      <div class="flex items-center flex-col items-start px-6 py-5">
                           <img src="DOWN BAD!.png" class="object-contain md:h-12">
                           <img src="MANHATTAN’S MOST MEMED.svg" class="object-contain md:h-5">
                       </div>
                    </div>
+            </div>
 
-                   <div class="w-full md:w-2/3 lg:w-1/2 full items-center overflow-hidden  relative z-10 shadow-lg">
-                    <div class="px-6 py-4">
-                      <div class="font-bold text-xl mb-2">Lucien</div>
-                    </div>
-                    <div class="px-6 pt-4 pb-2">
-                      <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#photography</span>
-                      <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#travel</span>
-                      <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#winter</span>
-                    </div>
-                  </div>
-                   
-                </div>
-            
-                <div class="justify-center flex flex-wrap flex-col items-center z-10">
+                   <div class="relative overflow-auto p-2">
+                    <div class="border-2 rounded-2xl border-yellow-500 overflow-visible relative max-w-lg mx-auto flex items-center gap-3 dark:bg-slate-800 dark:highlight-white/5">
+                        <strong class="absolute -left bg-yellow-500 text-slate-900 text-4xl font-weight-900 italic dark:text-slate-200">#1</strong>
+                        <div class="flex flex-col py-5 pl-24">
+                            <strong class="text-slate-900 text-3xl font-weight-900 italic dark:text-slate-200">Lucien</strong>
+                            <span class="text-slate-500 text-sm font-medium dark:text-slate-400">Copywriting to come.</span>
+                        </div>
+                        <img class="absolute -right-1 w-20 h-20 rounded-full hidden overflow-visible" src="https://lh5.googleusercontent.com/p/AF1QipOWHnbpBDzSOZl0Zk-nSRMSMGUtvksYuif7G7rP=w408-h306-k-no"/>
 
-                <div class="w-full md:w-2/3 lg:w-1/2 full items-center overflow-hidden shadow-lg">
-                    <div class="px-6 py-4">
-                      <div class="font-bold text-xl mb-2">Lucien</div>
                     </div>
-                    <div class="px-6 pt-4 pb-2">
-                      <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#photography</span>
-                      <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#travel</span>
-                      <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#winter</span>
-                    </div>
-                  </div>
-
-                  <div class="w-full md:w-2/3 lg:w-1/2 full items-center overflow-hidden shadow-lg">
-                    <div class="px-6 py-4">
-                      <div class="font-bold text-xl mb-2">Lucien</div>
-                    </div>
-                    <div class="px-6 pt-4 pb-2">
-                      <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#photography</span>
-                      <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#travel</span>
-                      <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#winter</span>
-                    </div>
-                  </div>
-    
                 </div>
 
-                <div class="absolute inset-0" id='map' data-tap-disabled="true"></div>
-                <script>
-                mapboxgl.accessToken = 'pk.eyJ1IjoicHVza2FyZXZpY21hcmtvIiwiYSI6ImNsOGM0ODN2ZzBkaG4zb245MXMyd3o3ZGkifQ.e6UX1du_kGFp5YzHVrnMLw';
-                var map = new mapboxgl.Map({
-                    container: 'map',
-                    style: 'mapbox://styles/puskarevicmarko/cl1v306x6006a14s2064gtpmd',
-                    center: [-73.991556,40.744972], // starting position [lng, lat]
-                    zoom: 12, // starting zoom
-                });
-    
-                map.on('load', () => {
-                    map.resize();
-                });
-    
                 
-                </script>
+            </div>
+            </div>
       </body>
       <!--<footer>
         <div class="fixed bottom-4 p-5 left-1/2 transform -translate-x-1/2 inline-flex left-0 mx-auto justify-center w-5/12 rounded-3xl">

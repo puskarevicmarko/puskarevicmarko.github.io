@@ -33,6 +33,7 @@
         <script src="https://unpkg.com/cupertino-pane/dist/cupertino-pane.min.js"></script>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ionic/core/css/ionic.bundle.css"/> 
         
+        
         <!--Mapbox-->
         <script src='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.js'></script>
         <link href='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.css' rel='stylesheet' />
@@ -65,11 +66,7 @@
                 <div id="button-group" class="py-2 pl-4 flex justify-left items-center space-x-4 overflow-x-auto">
                     <h2 class="flex-shrink-0">Associated: </h2>
                     <div id="tags" class="flex-shrink-0"></div>
-                    <!--<button type="button" class="flex-shrink-0 bg-gray-100 text-gray-900 py-2 px-4 rounded-full">Kith</button>
-                    <button type="button" class="flex-shrink-0 bg-gray-100 text-gray-900 py-2 px-4 rounded-full">Supreme</button>
-                    <button type="button" class="flex-shrink-0 bg-gray-100 text-gray-900 py-2 px-4 rounded-full">Clandestino</button>
-                    <button type="button" class="flex-shrink-0 bg-gray-100 text-gray-900 py-2 px-4 rounded-full">Le Dive</button>-->
-                </div>
+                 </div>
                 <div class="content" overflow-y>
                     <div class="h-fit" id="p1"></div>       
                     <div class="h-fit" id="p2"></div>       
@@ -101,99 +98,7 @@
                           <img src="MANHATTAN’S MOST MEMED.svg" class="object-contain md:h-5">
                       </div>
                       
-                     <!--<div class="pl-2 border-t border-gray-200 bg-gray-100 bg-opacity-75 flex flex-col items-center ">
-                      <div>
-                        <button class="font-sans my-4 bg-yellow-500 hover:bg-yellow-700 text-yellow-900 font-bold py-2 px-4 rounded-full items-center">
-                            Top 10 Most Down Bad
-                          </button>
-                        
-                          <div class="marquee">
-                            <div class="marquee__inner" aria-hidden="true">
-                                <span>Lucien is Down Bad</span>
-                                <span>Tao is Down Bad</span>
-                                <span>Dr. Clark's is Down Bad</span>
-                                <span>Ray's is Down Bad</span>
-                            </div>
-                        </div>-->
-                            
-                          <!--<div id="stories"></div>--> 
-
-<!--
-                              <script src="https://unpkg.com/zuck.js/dist/zuck.js"></script>
-                              <script src="https://unpkg.com/zuck.js/demo/script.js"></script>
-                              <script>
-                          
-                              var skin = location.href.split('skin=')[1];
-                              
-                              if(!skin) {
-                                  skin = 'Snapgram';
-                              } 
-                          
-                              if(skin.indexOf('#')!==-1){
-                              skin = skin.split('#')[0];
-                              }
-                          
-                              var skins = {
-                                  'Snapgram': {
-                                      'avatars': true,
-                                      'list': false,
-                                      'autoFullScreen': true,
-                                      'cubeEffect': false
-                                  },
-                          
-                                  'VemDeZAP': {
-                                      'avatars': false,
-                                      'list': true,
-                                      'autoFullScreen': false,
-                                      'cubeEffect': false
-                                  },
-                          
-                                  'FaceSnap': {
-                                      'avatars': true,
-                                      'list': false,
-                                      'autoFullScreen': true,
-                                      'cubeEffect': false
-                                  },
-                          
-                                  'Snapssenger': {
-                                      'avatars': false,
-                                      'list': false,
-                                      'autoFullScreen': false,
-                                      'cubeEffect': false
-                                  }
-                              };
-                          
-                              var stories = window.Zuck(document.querySelector('#stories'), {
-                                  backNative: false,
-                                  previousTap: false,
-                                  autoFullScreen: skins[skin]['autoFullScreen'],
-                                  skin: skin,
-                                  avatars: skins[skin]['avatars'],
-                                  list: skins[skin]['list'],
-                                  cubeEffect: skins[skin]['cubeEffect'],
-                                  localStorage: true,
-                                  stories: [
-                                  {
-                                      id: 'Lucien',
-                                      photo:
-                                      'https://lh5.googleusercontent.com/p/AF1QipOWHnbpBDzSOZl0Zk-nSRMSMGUtvksYuif7G7rP=w408-h306-k-no',
-                                      name: 'Lucien',
-                                      time: timestamp(),
-                                      items: [
-                                          {
-                                              id: 'test1',
-                                              type: 'photo',
-                                              length: 3,
-                                          }
-                                      ]
-                                  }
-                                  ]
-                              });
-                              </script>
-                          </div>
-                      </div>
-                 
-                 -->    </div>
+                  </div>
   
                 </div>
 
@@ -208,10 +113,6 @@
                 zoom: 12, // starting zoom
             });
 
-            /*map.on('load', () => {
-                map.resize();
-            });*/
-
             $(document).ready(function () {
                     $.ajax({
                         type: "GET",
@@ -220,6 +121,7 @@
                         success: function (csvData) { makeGeoJSON(csvData); }
                     });
         
+                    
                     function makeGeoJSON(csvData) {
                             csv2geojson.csv2geojson(csvData, {
                             latfield: 'Latitude',
@@ -232,7 +134,7 @@
 
                                 data.features.forEach((datum)=>{
                                     datum.properties.HeinosityIndex = parseInt(datum.properties.HeinosityIndex)
-                                })
+                                });
                                 //Add the the layer to the map
                                 
                                 map.addLayer({
