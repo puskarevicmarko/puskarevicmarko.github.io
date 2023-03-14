@@ -50,13 +50,13 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js"></script>
 
         <!-- Global site tag (gtag.js) - Google Analytics -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-163683928-1"></script>
+        <!--<script async src="https://www.googletagmanager.com/gtag/js?id=UA-163683928-1"></script>
         <script>
              window.dataLayer = window.dataLayer || [];
              function gtag(){dataLayer.push(arguments);}
              gtag('js', new Date());
              gtag('config', 'UA-163683928-1');
-         </script>      
+         </script>      -->
 
     </head>
     <body>
@@ -133,9 +133,8 @@
                                 map.resize();
 
                                 data.features.forEach((datum)=>{
-                                    datum.properties.HeinosityIndex = parseInt(datum.properties.HeinosityIndex)
+                                    datum.properties.HeinosityIndex = parseInt(datum.properties.HeinosityIndex);
                                 });
-                                //Add the the layer to the map
                                 
                                 map.addLayer({
                                 'id': 'places',
