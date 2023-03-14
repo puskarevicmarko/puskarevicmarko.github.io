@@ -102,7 +102,6 @@
   
                 </div>
 
-            
             <div class="absolute inset-0" id='map' data-tap-disabled="true"></div>
             <script>
             mapboxgl.accessToken = 'pk.eyJ1IjoicHVza2FyZXZpY21hcmtvIiwiYSI6ImNsOGM0ODN2ZzBkaG4zb245MXMyd3o3ZGkifQ.e6UX1du_kGFp5YzHVrnMLw';
@@ -113,11 +112,11 @@
                 center: [-73.991556,40.744972], // starting position [lng, lat]
                 zoom: 12, // starting zoom
                 trackResize: false,
-            });
+            }); 
 
-            map.on('load', () => {
-                map.resize();
-            });
+            map.on('idle',function(){
+            map.resize()
+            })
 
             $(document).ready(function () {
                     $.ajax({
