@@ -113,6 +113,11 @@
                 zoom: 12, // starting zoom
             });
 
+
+            map.on('load', (event) => {
+              setTimeout(() => map.resize(), 0);
+            });
+
             $(document).ready(function () {
                     $.ajax({
                         type: "GET",
@@ -120,7 +125,6 @@
                         dataType: "text",
                         success: function (csvData) { makeGeoJSON(csvData); }
                     });
-        
                     
                     function makeGeoJSON(csvData) {
                             csv2geojson.csv2geojson(csvData, {
@@ -130,10 +134,8 @@
                             }, function (err, data) {
                             map.on('load', function () {
                                 
-                                map.resize();
-
                                 data.features.forEach((datum)=>{
-                                    datum.properties.HeinosityIndex = parseInt(datum.properties.HeinosityIndex);
+                                    datum.properties.HeinosityIndex = parseInt(datum.properties.HeinosityIndex)
                                 });
                                 
                                 map.addLayer({
