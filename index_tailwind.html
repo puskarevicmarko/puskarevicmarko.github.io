@@ -1,91 +1,112 @@
 <!DOCTYPE html>
-<html dir="ltr">
-
+<html>
 <head>
   <meta charset="UTF-8">
-  <title>Cupertino Pane - Basic</title>
- 
-  <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <script>var exports = {"__esModule": true};</script> <!-- Required if exports not defined earlier -->
-  <script type="module" src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.esm.js"></script>
-  <script src="https://unpkg.com/cupertino-pane/dist/cupertino-pane.min.js"></script>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ionic/core/css/ionic.bundle.css"/> 
+  <title>Top 10 Restaurants</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    /* Set up the page layout */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #fff;
+      color: #000;
+      margin: 0;
+      padding: 0;
+    }
 
-     <!--Mapbox-->
-     <script src='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.js'></script>
-     <link href='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.css' rel='stylesheet' />
-    
+    header {
+      background-color: #ff6600;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+    }
 
-  <style>ion-drawer {padding: 0 20px;}</style>
+    h1 {
+      margin: 0;
+    }
+
+    .restaurant {
+      display: flex;
+      align-items: center;
+      padding: 10px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .rank {
+      font-size: 48px;
+      font-weight: bold;
+      text-align: center;
+      width: 80px;
+      margin-right: 10px;
+    }
+
+    .name {
+      font-size: 24px;
+      font-weight: bold;
+      margin: 0;
+    }
+
+    .description {
+      font-size: 16px;
+      margin: 0;
+    }
+
+    /* Set up the mobile layout */
+    @media screen and (max-width: 480px) {
+      .rank {
+        font-size: 24px;
+        width: 50px;
+      }
+
+      .name {
+        font-size: 16px;
+      }
+
+      .description {
+        font-size: 14px;
+      }
+    }
+  </style>
 </head>
-
 <body>
-  <ion-content scroll-y="false">
-      <ion-drawer>
-        <h1>Header</h1>
-        <p hide-on-bottom>Content</p> 
-      </ion-drawer>
+  <header>
+    <h1>Top 10 Restaurants</h1>
+  </header>
 
-      <div id='map'></div>
-      <script>
-      mapboxgl.accessToken = 'pk.eyJ1IjoicHVza2FyZXZpY21hcmtvIiwiYSI6ImNsOGM0ODN2ZzBkaG4zb245MXMyd3o3ZGkifQ.e6UX1du_kGFp5YzHVrnMLw';
-      var map = new mapboxgl.Map({
-          container: 'map',
-          style: 'mapbox://styles/puskarevicmarko/cl1v306x6006a14s2064gtpmd',
-          center: [-73.991556,40.744972], // starting position [lng, lat]
-          zoom: 12, // starting zoom
-      });
-      </script>
-      
-  </ion-content>
-  <script>
-    var drawer = new CupertinoPane('ion-drawer', { 
-        // breaks: {
-        //   top: { enabled: false, offset: 700 }
-        // },
-        // draggableOver: true,
-        // dragByCursor: false,
-        // backdrop: true,
-        // topperOverflowOffset: 110
-        // followerElement: 'ion-fab',
-        // onDrag: () => console.log('Drag event'),
-        // freeMode: true,
-        // onBackdropTap: () => hideDrawer()
-    });
-    
-    async function presentDrawer() {
-      drawer.present({animate: true});
-    };
+  <div class="restaurant">
+    <div class="rank">1</div>
+    <div>
+      <h2 class="name">Le Bernardin</h2>
+      <p class="description">French seafood restaurant in Midtown with a prix-fixe menu &amp; wine pairings.</p>
+    </div>
+  </div>
 
-    async function destroyDrawer() {
-      drawer.destroy({animate: true});
-    };
-    
-    async function hideDrawer() {
-      drawer.hide();
-    };
+  <div class="restaurant">
+    <div class="rank">2</div>
+    <div>
+      <h2 class="name">Eleven Madison Park</h2>
+      <p class="description">Upscale American cuisine &amp; wine pairings in a chic Art Deco space with park views.</p>
+    </div>
+  </div>
 
-    async function isHiddenDrawer() {
-        console.log(await drawer.isHidden());
-    };
+  <div class="restaurant">
+    <div class="rank">3</div>
+    <div>
+      <h2 class="name">Osteria Francescana</h2>
+      <p class="description">Upscale Italian fare with tasting menus &amp; a wine list in a modern, intimate space.</p>
+    </div>
+  </div>
 
-    async function setTopDrawer() {
-      drawer.moveToBreak('top');
-    };
+  <div class="restaurant">
+    <div class="rank">4</div>
+    <div>
+      <h2 class="name">Blue Hill at Stone Barns</h2>
+      <p class="description">Farm-to-table American fare in a pastoral setting, with a focus on local ingredients.</p>
+    </div>
+  </div>
 
-    async function setMiddleDrawer() {
-      drawer.moveToBreak('middle');
-    };
-
-    async function setBottomDrawer() {
-      drawer.moveToBreak('bottom');
-    };
-    
-    window.addEventListener('load', function() {
-      presentDrawer();
-    })
-
-  </script>
-</body>
-
-</html>
+  <div class="restaurant">
+    <div class="rank">5</div>
+    <div>
+      <h2 class="name">Mirazur</h2>
+      <p class="description">Mediterranean cuisine &amp; wine
