@@ -380,7 +380,9 @@
             });
 
             // Create a popup and add it to the map
-            new mapboxgl.Popup()
+            new mapboxgl.Popup({
+              closeButton: false,
+            })
               .setLngLat([longitude, latitude])
               .setHTML(description)
               .addTo(map);
